@@ -1,0 +1,84 @@
+﻿@using CarsAndDrivers.Models
+@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="~/">
+                <i class="fa fa-car"></i> <span class="light">Cars</span> and Drivers
+            </a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from login link when scrolled up past login section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#login">Login</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+<!-- Login Section -->
+<section id="login" class="container content-section text-center">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h2>@ViewBag.Title</h2>
+
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-8 col-md-offset-2 ">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName)
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Please enter your username" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password)
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Please enter your pasword" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                        <small>
+                            | @*Forgot <a href="#">password?</a>*@
+                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                        </small>
+                    </div>
+                    <input type="submit" value="Login" class="btn btn-default btn-md btn-block" />
+                </div>
+            }
+        </div>
+    </div>
+</section>
+<!-- // Login Section -->
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
