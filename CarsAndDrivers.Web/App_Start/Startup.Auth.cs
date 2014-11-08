@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.DataProtection;
 using Owin;
 using System;
 using CarsAndDrivers.Models;
+using CarsAndDrivers.Data;
 
 namespace CarsAndDrivers
 {
