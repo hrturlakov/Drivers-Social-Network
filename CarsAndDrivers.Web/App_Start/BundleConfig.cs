@@ -18,7 +18,10 @@ namespace CarsAndDrivers
                         "~/Scripts/jquery.easing.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/site").Include(
-                        "~/Scripts/site.js"));
+                        "~/Scripts/site-landingpage.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/sitemain").Include(
+                       "~/Scripts/MainSite.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
@@ -29,13 +32,17 @@ namespace CarsAndDrivers
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new StyleBundle("~/Content/cssmain").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/MainSite.css"));
+            
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/SiteLandingPage.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }

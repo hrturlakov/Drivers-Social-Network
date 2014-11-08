@@ -12,7 +12,7 @@ namespace CarsAndDrivers.Data
         private IApplicationDbContext context; //Change
         private IDictionary<Type, object> repositories;
 
-        public ApplicationData() //Change
+        public ApplicationData()
             : this(new ApplicationDbContext()) //Change
         {
         }

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/fonts/font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Video background -->
+    <div id="dotted-bg"></div>
+    <video autoplay loop muted poster="vid-first-frame.jpg" id="video-bg">
+        <source src="~/images/video.webm" type="video/webm" />
+        <source src="~/images/video.mp4" type="video/mp4" />
+    </video>
+    <!-- // Video background -->
+    
+    @RenderBody()
+
+    <!-- About Section -->
+    <section id="about" class="content-section text-center">
+        <div class="about-section">
+            <div class="container">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>About Our Project</h2>
+                    <h3>Let's build together YOUR community about cars and drivers</h3>
+                    <p>Share everything about your cars, find opinions from other drivers and simply have fun.</p>
+                    <p>First Social network in the world about Cars and drivers, about passion and life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- // About Section -->
+    <!-- Footer -->
+    <div class="container-fluid">
+        <footer>
+            <div class="row color-gray">
+                <div class="col-lg-12">
+                    <p class="text-center">Follow us on</p>
+                    <p class="text-center">
+                        <a href="#"><i class="fa fa-facebook-square fa-3x color-facebook"></i></a>
+                        <a href="#"><i class="fa fa-youtube-square fa-3x color-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-twitter-square fa-3x color-twitter"></i></a>
+                        <a href="#"><i class="fa fa-google-plus-square fa-3x color-google-plus"></i></a>
+                        <a href="#"><i class="fa fa-pinterest-square fa-3x color-pinterest"></i></a>
+                    </p>
+                    <p class="text-center gray-color">
+                        <span class="glyphicon glyphicon-copyright-mark"></span> 2014 All rights reserved. Made with <span class="glyphicon glyphicon-heart red-color"></span> in Sofia.
+                    </p>
+                    <p class="text-center gray-color">Powered by: <a href="#" target="_blank">JS</a>, <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>, Font Awesome and Love</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryeasing")
+    @Scripts.Render("~/bundles/site")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
