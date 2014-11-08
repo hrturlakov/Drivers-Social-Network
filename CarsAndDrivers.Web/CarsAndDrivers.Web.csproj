@@ -253,6 +253,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CarsAndDrivers.Data.Common\CarsAndDrivers.Data.Common.csproj">
+      <Project>{77d305cf-944a-4a6c-8356-cd81407f6890}</Project>
+      <Name>CarsAndDrivers.Data.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CarsAndDrivers.Data\CarsAndDrivers.Data.csproj">
       <Project>{c08928f9-1a85-452c-8418-c581fc400e87}</Project>
       <Name>CarsAndDrivers.Data</Name>
