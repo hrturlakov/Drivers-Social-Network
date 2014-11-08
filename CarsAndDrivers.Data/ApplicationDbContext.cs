@@ -10,8 +10,9 @@
     using CarsAndDrivers.Data.Common.Models;
     using CarsAndDrivers.Data.Migrations;
     using CarsAndDrivers.Models;
+    using CarsAndDrivers.Data.Common.Repository;
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -22,6 +23,11 @@
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        public new IDbSet<T> Set<T>() where T : class
+        {
+            return base.Set<T>();
         }
 
         public override int SaveChanges()

@@ -8,7 +8,7 @@
 
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-        public GenericRepository(DbContext context)
+        public GenericRepository(IApplicationDbContext context)
         {
             if (context == null)
             {
@@ -19,9 +19,9 @@
             this.DbSet = this.Context.Set<T>();
         }
 
+        protected IApplicationDbContext Context { get; set; }
+        
         protected IDbSet<T> DbSet { get; set; }
-
-        protected DbContext Context { get; set; }
 
         public virtual IQueryable<T> All()
         {
@@ -91,11 +91,6 @@
         public int SaveChanges()
         {
             return this.Context.SaveChanges();
-        }
-
-        public void Dispose()
-        {
-            this.Context.Dispose();
         }
     }
 }

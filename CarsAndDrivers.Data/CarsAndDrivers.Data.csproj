@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationData.cs" />
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="Migrations\201411081418078_InitialCreate.cs" />
     <Compile Include="Migrations\201411081418078_InitialCreate.Designer.cs">
