@@ -1,0 +1,353 @@
+﻿
+@{
+    ViewBag.Title = "StepThree";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <form role="form">
+        <div class="col-md-8 col-md-offset-2 ">
+            <p class="intro-text">Hello HrTurlakov</p>
+            <h4 class="intro-text">Third Step (3/3)<small> |  Tell us about your car</small></h4>
+            <div class="form-group">
+                <label for="Title">Title</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-hand-right"></span></span>
+                    <input type="text" class="form-control" name="Title" id="Title" placeholder="Please enter your Title" required>
+                </div>
+                <p><small>For example: Monster AMG CLS</small></p>
+            </div>
+            <div class="form-group">
+                <label for="Your car">Your car</label>
+                <select class="form-control">
+                    <option value="Pick one">Pick one</option>
+                    <option value="ac">AC Cobra</option>
+                    <option value="acura">Acura</option>
+                    <option value="alfaromeo">Alfa Romeo</option>
+                    <option value="amc">AMC</option>
+                    <option value="aro">ARO</option>
+                    <option value="astonmartin">Aston Martin</option>
+                    <option value="audi">Audi</option>
+                    <option value="autozam">Autozam</option>
+                    <option value="barkas">Barkas</option>
+                    <option value="bentley">Bentley</option>
+                    <option value="bmw">BMW</option>
+                    <option value="bogdan">Bogdan</option>
+                    <option value="brilliance">Brilliance</option>
+                    <option value="bugatti">Bugatti</option>
+                    <option value="buick">Buick</option>
+                    <option value="byd">BYD</option>
+                    <option value="cadillac">Cadillac</option>
+                    <option value="caterham">Caterham</option>
+                    <option value="changan">Changan</option>
+                    <option value="chery">Chery</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="chrysler">Chrysler</option>
+                    <option value="citroen">Citroen</option>
+                    <option value="dacia">Dacia</option>
+                    <option value="daewoo">Daewoo</option>
+                    <option value="daihatsu">Daihatsu</option>
+                    <option value="datsun">Datsun</option>
+                    <option value="detomaso">de Tomaso</option>
+                    <option value="dodge">Dodge</option>
+                    <option value="efini">Efini</option>
+                    <option value="eunos">Eunos</option>
+                    <option value="faw">FAW</option>
+                    <option value="ferrari">Ferrari</option>
+                    <option value="fiat">FIAT</option>
+                    <option value="ford">Ford</option>
+                    <option value="fso">FSO</option>
+                    <option value="geely">Geely</option>
+                    <option value="gmc">GMC</option>
+                    <option value="greatwall">Great Wall</option>
+                    <option value="hafei">Hafei</option>
+                    <option value="haima">Haima</option>
+                    <option value="holden">Holden</option>
+                    <option value="honda">Honda</option>
+                    <option value="hummer">Hummer</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="infiniti">Infiniti</option>
+                    <option value="ikco">Iran Khodro</option>
+                    <option value="isuzu">Isuzu</option>
+                    <option value="iveco">Iveco</option>
+                    <option value="jaguar">Jaguar</option>
+                    <option value="jeep">Jeep</option>
+                    <option value="kia">KIA</option>
+                    <option value="ktm">KTM</option>
+                    <option value="lamborghini">Lamborghini</option>
+                    <option value="lancia">Lancia</option>
+                    <option value="landrover">Land Rover</option>
+                    <option value="ldv">LDV</option>
+                    <option value="lexus">Lexus</option>
+                    <option value="lifan">Lifan</option>
+                    <option value="lincoln">Lincoln</option>
+                    <option value="lotus">Lotus</option>
+                    <option value="maserati">Maserati</option>
+                    <option value="mazda">Mazda</option>
+                    <option value="mercedes">Mercedes-Benz</option>
+                    <option value="mercury">Mercury</option>
+                    <option value="mg">MG</option>
+                    <option value="mini">MINI</option>
+                    <option value="mitsubishi">Mitsubishi</option>
+                    <option value="morgan">Morgan</option>
+                    <option value="nissan">Nissan</option>
+                    <option value="noble">Noble</option>
+                    <option value="nysa">Nysa</option>
+                    <option value="oldsmobile">Oldsmobile</option>
+                    <option value="opel">Opel</option>
+                    <option value="peugeot">Peugeot</option>
+                    <option value="plymouth">Plymouth</option>
+                    <option value="pontiac">Pontiac</option>
+                    <option value="porsche">Porsche</option>
+                    <option value="proton">Proton</option>
+                    <option value="renault">Renault</option>
+                    <option value="rollsroyce">Rolls-Royce</option>
+                    <option value="rover">Rover</option>
+                    <option value="saab">Saab</option>
+                    <option value="saturn">Saturn</option>
+                    <option value="scion">Scion</option>
+                    <option value="seat">SEAT</option>
+                    <option value="simca">Simca</option>
+                    <option value="skoda">Skoda</option>
+                    <option value="sma">SMA</option>
+                    <option value="smart">Smart</option>
+                    <option value="ssangyong">SsangYong</option>
+                    <option value="subaru">Subaru</option>
+                    <option value="suzuki">Suzuki</option>
+                    <option value="talbot">Talbot</option>
+                    <option value="tata">Tata</option>
+                    <option value="tatra">Tatra</option>
+                    <option value="tesla">Tesla</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="vauxhall">Vauxhall</option>
+                    <option value="volkswagen">Volkswagen</option>
+                    <option value="volvo">Volvo</option>
+                    <option value="wartburg">Wartburg</option>
+                    <option value="wiesmann">Wiesmann</option>
+                    <option value="willys">Willys</option>
+                    <option value="avtokam">Автокам</option>
+                    <option value="$lada">ВАЗ</option>
+                    <option value="vis">ВИС</option>
+                    <option value="gaz">ГАЗ</option>
+                    <option value="eraz">ЕрАЗ</option>
+                    <option value="zaz">ЗАЗ</option>
+                    <option value="zil">ЗИЛ</option>
+                    <option value="izh">ИЖ</option>
+                    <option value="kamaz">КАМАЗ</option>
+                    <option value="lada">Лада</option>
+                    <option value="luaz">ЛуАЗ</option>
+                    <option value="moskvich">Москвич</option>
+                    <option value="raf">РАФ</option>
+                    <option value="seaz">СеАЗ</option>
+                    <option value="tagaz">ТагАЗ</option>
+                    <option value="uaz">УАЗ</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Car Model">Car Model</label>
+                <select class="form-control">
+                    <option value="xx">xx</option>
+                    <option value="xx">xx</option>
+                    <option value="xx">xx</option>
+                    <option value="xx">xx</option>
+                    <option value="xx">xx</option>
+                    <option value="xx">xx</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Release year">Release year</label>
+                <select class="form-control">
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="Older">Older</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Car Color">Car Color</label>
+                <select class="form-control">
+                    <option value="White">White</option>
+                    <option value="Black">Black</option>
+                    <option value="Red">Red</option>
+                    <option value="Gray">Gray</option>
+                    <option value="Dark gray">Dark gray</option>
+                    <option value="Champagne">Champagne</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Golden">Golden</option>
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option>
+                    <option value="Blue">Blue</option>
+                    <option value="Pink">Pink</option>
+                    <option value="Multicolor">Multicolor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Driving experience">Driving experience</label>
+                <select class="form-control">
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                    <option value="2011">2011</option>
+                    <option value="2010">2010</option>
+                    <option value="2009">2009</option>
+                    <option value="2008">2008</option>
+                    <option value="2007">2007</option>
+                    <option value="2006">2006</option>
+                    <option value="2005">2005</option>
+                    <option value="2004">2004</option>
+                    <option value="2003">2003</option>
+                    <option value="2002">2002</option>
+                    <option value="2001">2001</option>
+                    <option value="2000">2000</option>
+                    <option value="1999">1999</option>
+                    <option value="1998">1998</option>
+                </select>
+                <p><small>In what year did you start to drive?</small></p>
+            </div>
+            <div class="form-group">
+                <label for="Personal Picture">Car pictures</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip; <input type="file" multiple>
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <p><small>File format - JPEG or GIF without animation.Picture size of at least 600 × 800 pixels.</small></p>
+                <p><small class="text-danger">Warning: Upload ONLY your car pictures or your EX-Car Pictures.</small></p>
+                <p><small class="text-danger">Bad quality or stolen pictures will be deleted.</small></p>
+            </div>
+            <div class="form-group">
+                <label for="Few words about you">Few words about your car</label>
+                <textarea class="form-control"></textarea>
+                <p><small>Minimum 140 symbols. If you want your car to have high rating, please write informative and interesting stories.</small></p>
+                <p><small class="text-success">Long text is strongly recommended, please split into paragraphs.</small></p>
+            </div>
+            <div class="form-group">
+                <label for="Horse power">Horse power</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-road"></span></span>
+                    <input type="text" class="form-control" placeholder="How many horse power has your car?" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Engine capacity">Engine capacity</label>
+                <select class="form-control">
+                    <option value="0.5">0,5</option>
+                    <option value="0.6">0,6</option>
+                    <option value="0.7">0,7</option>
+                    <option value="0.8">0,8</option>
+                    <option value="0.9">0,9</option>
+                    <option value="1">1,0</option>
+                    <option value="1.1">1,1</option>
+                    <option value="1.2">1,2</option>
+                    <option value="1.3">1,3</option>
+                    <option value="1.4">1,4</option>
+                    <option value="1.5">1,5</option>
+                    <option value="1.6">1,6</option>
+                    <option value="1.7">1,7</option>
+                    <option value="1.8">1,8</option>
+                    <option value="1.9">1,9</option>
+                    <option value="2">2,0</option>
+                    <option selected="selected" value="0"></option>
+                    <option value="2.1">2,1</option>
+                    <option value="2.2">2,2</option>
+                    <option value="2.3">2,3</option>
+                    <option value="2.4">2,4</option>
+                    <option value="2.5">2,5</option>
+                    <option value="2.6">2,6</option>
+                    <option value="2.7">2,7</option>
+                    <option value="2.8">2,8</option>
+                    <option value="2.9">2,9</option>
+                    <option value="3">3,0</option>
+                    <option value="3.1">3,1</option>
+                    <option value="3.2">3,2</option>
+                    <option value="3.3">3,3</option>
+                    <option value="3.4">3,4</option>
+                    <option value="3.5">3,5</option>
+                    <option value="3.6">3,6</option>
+                    <option value="3.7">3,7</option>
+                    <option value="3.8">3,8</option>
+                    <option value="3.9">3,9</option>
+                    <option value="4">4,0</option>
+                    <option value="4.1">4,1</option>
+                    <option value="4.2">4,2</option>
+                    <option value="4.3">4,3</option>
+                    <option value="4.4">4,4</option>
+                    <option value="4.5">4,5</option>
+                    <option value="4.6">4,6</option>
+                    <option value="4.7">4,7</option>
+                    <option value="4.8">4,8</option>
+                    <option value="4.9">4,9</option>
+                    <option value="5">5,0</option>
+                    <option value="5.1">5,1</option>
+                    <option value="5.2">5,2</option>
+                    <option value="5.3">5,3</option>
+                    <option value="5.4">5,4</option>
+                    <option value="5.5">5,5</option>
+                    <option value="5.6">5,6</option>
+                    <option value="5.7">5,7</option>
+                    <option value="5.8">5,8</option>
+                    <option value="5.9">5,9</option>
+                    <option value="6">6,0</option>
+                    <option value="6.1">6,1</option>
+                    <option value="6.2">6,2</option>
+                    <option value="6.3">6,3</option>
+                    <option value="6.4">6,4</option>
+                    <option value="6.5">6,5</option>
+                    <option value="6.6">6,6</option>
+                    <option value="6.7">6,7</option>
+                    <option value="6.8">6,8</option>
+                    <option value="6.9">6,9</option>
+                    <option value="7">7,0</option>
+                    <option value="7.1">7,1</option>
+                    <option value="7.2">7,2</option>
+                    <option value="7.3">7,3</option>
+                    <option value="7.4">7,4</option>
+                    <option value="7.5">7,5</option>
+                    <option value="7.6">7,6</option>
+                    <option value="7.7">7,7</option>
+                    <option value="7.8">7,8</option>
+                    <option value="7.9">7,9</option>
+                    <option value="8">8,0</option>
+                    <option value="8.1">8,1</option>
+                    <option value="8.2">8,2</option>
+                    <option value="8.3">8,3</option>
+                    <option value="8.4">8,4</option>
+                    <option value="8.5">8,5</option>
+                    <option value="8.6">8,6</option>
+                    <option value="8.7">8,7</option>
+                    <option value="8.8">8,8</option>
+                    <option value="8.9">8,9</option>
+                    <option value="9">9,0</option>
+                    <option value="9.1">9,1</option>
+                    <option value="9.2">9,2</option>
+                    <option value="9.3">9,3</option>
+                    <option value="9.4">9,4</option>
+                    <option value="9.5">9,5</option>
+                    <option value="9.6">9,6</option>
+                    <option value="9.7">9,7</option>
+                    <option value="9.8">9,8</option>
+                    <option value="9.9">9,9</option>
+                </select>
+            </div>
+            <a href="#" class="btn btn-default btn-md btn-block">
+                Finish
+            </a>
+        </div>
+    </form>
+</div>

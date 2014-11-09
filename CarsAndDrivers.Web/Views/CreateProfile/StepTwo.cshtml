@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "StepTwo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <form role="form">
+        <div class="col-md-8 col-md-offset-2 ">
+            <p class="intro-text">Hello HrTurlakov</p>
+            <h4 class="intro-text">Second Step (2/3)<small> |  Avatar and Profile Picture</small></h4>
+            <div class="form-group">
+                <label for="Avatar">Avatar</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip; <input type="file" multiple>
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <p><small>File format - JPEG or GIF without animation.Picture size of at least 200 × 200 pixels.</small></p>
+            </div>
+            <div class="form-group">
+                <label for="Profile Picture">Profile Picture</label>
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-primary btn-file">
+                            Browse&hellip; <input type="file" multiple>
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly>
+                </div>
+                <p><small>File format - JPEG or GIF without animation.Picture size of at least 200 × 200 pixels.</small></p>
+                <p>
+                    <small class="text-danger">Before upload Profile picture, read this simple rules. Really, read it!</small>
+                    <ul>
+                        <li>
+                            If you are under 18 and upload nude/porn pictures, it will be deleted without warning.
+                        </li>
+                        <li>
+                            Pictures of celebrities, animals, cars, bikes, cartoons, drawings, etc. will be deleted.
+                        </li>
+                        <li>
+                            Pictures containing the logo of another site will be deleted without warning.
+                        </li>
+                        <li>
+                            Pictures, where you are with group of other people will be deleted.
+                        </li>
+                        <li>
+                            Pictures, edited by software, will be deleted.
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    <small class="text-success">What is good to upload</small>
+                    <ul>
+                        <li>
+                            Upload your pretty face.
+                        </li>
+                        <li>
+                            Upload your picture from summer?
+                        </li>
+                        <li>
+                            Upload pictures, where you stand alone, to show us, your majesty.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <a href="#" class="btn btn-default btn-md btn-block">
+                Next Step (3/3)
+            </a>
+        </div>
+    </form>
+</div>
+
