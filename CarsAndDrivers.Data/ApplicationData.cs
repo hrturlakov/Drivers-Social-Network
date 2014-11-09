@@ -1,4 +1,7 @@
-﻿using CarsAndDrivers.Data.Common.Repository;
+﻿using CarsAndDrivers.Data.Common.Models;
+using CarsAndDrivers.Data.Common.Repository;
+using CarsAndDrivers.Data.Repositories;
+using CarsAndDrivers.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,21 +26,21 @@ namespace CarsAndDrivers.Data
             this.repositories = new Dictionary<Type, object>();
         }
 
-        //public IRepository<Album> Albums //Change
-        //{
-        //    get
-        //    {
-        //        return this.GetRepository<Album>(); //Change
-        //    }
-        //}
+        public IRepository<UserProfile> UserProfiles //Change
+        {
+            get
+            {
+                return this.GetRepository<UserProfile>(); //Change
+            }
+        }
 
-        //public IRepository<Artist> Artists //Change
-        //{
-        //    get
-        //    {
-        //        return this.GetRepository<Artist>(); //Change
-        //    }
-        //}
+        public IRepository<ApplicationUser> Users //Change
+        {
+            get
+            {
+                return this.GetRepository<ApplicationUser>(); //Change
+            }
+        }
 
         //public IRepository<Song> Songs //Change
         //{
@@ -81,6 +84,17 @@ namespace CarsAndDrivers.Data
             }
 
             return (IRepository<T>)this.repositories[typeOfModel];
+        }
+
+        private IDeletableEntityRepository<T> GetDeletableEntityRepository<T>() where T : class, IDeletableEntity
+        {
+            if (!this.repositories.ContainsKey(typeof(T)))
+            {
+                var type = typeof(DeletableEntityRepository<T>);
+                this.repositories.Add(typeof(T), Activator.CreateInstance(type, this.context));
+            }
+
+            return (IDeletableEntityRepository<T>)this.repositories[typeof(T)];
         }
     }
 }

@@ -1,8 +1,14 @@
 ﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<CarsAndDrivers.Models.UserProfile>
 @{
     ViewBag.Title = "Home Page";
 }
 
 <div>
     Hello @User.Identity.GetUserName()
+    
+    @foreach (var item in Model)
+    {
+        @item.Name
+    }
 </div>

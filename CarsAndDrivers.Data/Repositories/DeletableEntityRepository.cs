@@ -1,9 +1,10 @@
-﻿namespace CarsAndDrivers.Data.Common.Repository
+﻿namespace CarsAndDrivers.Data.Repositories
 {
     using System.Data.Entity;
     using System.Linq;
 
     using CarsAndDrivers.Data.Common.Models;
+    using CarsAndDrivers.Data.Common.Repository;
 
     public class DeletableEntityRepository<T> : GenericRepository<T>, IDeletableEntityRepository<T>
         where T : class, IDeletableEntity

@@ -1,5 +1,6 @@
-﻿namespace CarsAndDrivers.Data.Common.Repository
+﻿namespace CarsAndDrivers.Data.Repositories
 {
+    using CarsAndDrivers.Data.Common.Repository;
     using System;
     using System.ComponentModel.DataAnnotations;
     using System.Data.Entity;

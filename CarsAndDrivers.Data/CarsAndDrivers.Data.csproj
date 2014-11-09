@@ -54,12 +54,16 @@
   <ItemGroup>
     <Compile Include="ApplicationData.cs" />
     <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="IApplicationData.cs" />
+    <Compile Include="IApplicationDbContext.cs" />
     <Compile Include="Migrations\201411081418078_InitialCreate.cs" />
     <Compile Include="Migrations\201411081418078_InitialCreate.Designer.cs">
       <DependentUpon>201411081418078_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\DeletableEntityRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarsAndDrivers.Data.Common\CarsAndDrivers.Data.Common.csproj">

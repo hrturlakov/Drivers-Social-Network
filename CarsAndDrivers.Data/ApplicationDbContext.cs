@@ -25,6 +25,10 @@
             return new ApplicationDbContext();
         }
 
+
+        public IDbSet<UserProfile> UserProfiles { get; set; }
+        
+
         public new IDbSet<T> Set<T>() where T : class
         {
             return base.Set<T>();
