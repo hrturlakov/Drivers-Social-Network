@@ -1,15 +1,13 @@
-﻿using CarsAndDrivers.Data.Common.Models;
-using CarsAndDrivers.Data.Common.Repository;
-using CarsAndDrivers.Data.Repositories;
-using CarsAndDrivers.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarsAndDrivers.Data
+﻿namespace CarsAndDrivers.Data
 {
+    using System;
+    using System.Collections.Generic;
+
+    using CarsAndDrivers.Data.Common.Models;
+    using CarsAndDrivers.Data.Common.Repository;
+    using CarsAndDrivers.Data.Repositories;
+    using CarsAndDrivers.Models;
+
     public class ApplicationData : IApplicationData //Change
     {
         private IApplicationDbContext context; //Change
@@ -34,6 +32,37 @@ namespace CarsAndDrivers.Data
             }
         }
 
+        public IRepository<CarProfile> CarProfiles //Change
+        {
+            get
+            {
+                return this.GetRepository<CarProfile>(); //Change
+            }
+        }
+
+        public IRepository<CarManufacturer> CarManufacturers //Change
+        {
+            get
+            {
+                return this.GetRepository<CarManufacturer>(); //Change
+            }
+        }
+
+        public IRepository<CarModel> CarModels //Change
+        {
+            get
+            {
+                return this.GetRepository<CarModel>(); //Change
+            }
+        }
+
+        public IRepository<Country> Countries //Change
+        {
+            get
+            {
+                return this.GetRepository<Country>(); //Change
+            }
+        }
         public IRepository<ApplicationUser> Users //Change
         {
             get
@@ -41,14 +70,6 @@ namespace CarsAndDrivers.Data
                 return this.GetRepository<ApplicationUser>(); //Change
             }
         }
-
-        //public IRepository<Song> Songs //Change
-        //{
-        //    get
-        //    {
-        //        return this.GetRepository<Song>(); //Change
-        //    }
-        //}
 
         //public StudentsRepository Students //Change
         //{

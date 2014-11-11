@@ -6,22 +6,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper.QueryableExtensions;
+using CarsAndDrivers.ViewModels.CreateProfile;
 
 namespace CarsAndDrivers.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        private IApplicationData data;
-
         public HomeController(IApplicationData data)
+            : base(data)
         {
-            this.data = data;
         }
 
         //[ChildActionOnly]
         public ActionResult Index()
         {
-            var profiles = this.data.UserProfiles.All();
+            var profiles = this.Data.UserProfiles.All().Project().To<UserProfileViewModelStOne>();
             return View(profiles);
         }
 

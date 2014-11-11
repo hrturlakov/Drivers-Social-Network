@@ -27,7 +27,14 @@
 
 
         public IDbSet<UserProfile> UserProfiles { get; set; }
-        
+
+        public IDbSet<CarProfile> CarProfiles { get; set; }
+
+        public IDbSet<CarManufacturer> CarManufacturers { get; set; }
+
+        public IDbSet<CarModel> CarModels { get; set; }
+
+        public IDbSet<Country> Countries { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {
