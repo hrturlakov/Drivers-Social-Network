@@ -5,9 +5,11 @@
 
     public class UserProfile
     {
+        private ICollection<CarProfile> carProfiles;
+        
         public UserProfile()
         {
-            this.CarProfiles = new HashSet<CarProfile>();
+            this.carProfiles = new HashSet<CarProfile>();
         }
         public int Id { get; set; }
 
@@ -37,6 +39,10 @@
 
         public string PictureUrl { get; set; }
 
-        public virtual IEnumerable<CarProfile> CarProfiles { get; set; }
+        public virtual ICollection<CarProfile> CarProfiles
+        {
+            get { return carProfiles; }
+            set { carProfiles = value; }
+        }
     }
 }

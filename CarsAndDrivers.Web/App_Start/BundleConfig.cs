@@ -8,8 +8,15 @@ namespace CarsAndDrivers
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+
+            bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
+                        "~/Scripts/Kendo/kendo.all.min.js",
+                        "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
+            
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/Kendo/jquery.min.js"));
+                        //"~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -39,6 +46,11 @@ namespace CarsAndDrivers
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/SiteLandingPage.css"));
+
+            bundles.Add(new StyleBundle("~/Content/kendo").Include(
+                      "~/Content/Kendo/kendo.common.min.css",
+                      "~/Content/Kendo/kendo.common-bootstrap.min.css",
+                      "~/Content/Kendo/kendo.silver.min.css"));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862

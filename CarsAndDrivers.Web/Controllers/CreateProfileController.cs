@@ -154,8 +154,10 @@
                 }
                 
                 var userId = User.Identity.GetUserId();
-                var userProfile = this.Data.UserProfiles.All().FirstOrDefault(u => u.UserId == userId);
-                var carProfile = new CarProfile() {
+                var userProfile = this.Data.UserProfiles.All().AsQueryable().FirstOrDefault(u => u.UserId == userId);
+
+                var carProfile = new CarProfile()
+                {
                     UserProfile = userProfile,
                     Title = carModel.Title,
                     ReleaseYear = carModel.ReleaseYear,
@@ -167,6 +169,7 @@
                     Description = carModel.Description
                 };
 
+                userProfile.CarProfiles.Add(carProfile);
                 this.Data.CarProfiles.Add(carProfile);
                 this.Data.SaveChanges();
 

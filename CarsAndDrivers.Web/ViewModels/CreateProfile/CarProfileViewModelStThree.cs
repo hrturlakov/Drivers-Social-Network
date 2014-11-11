@@ -5,8 +5,12 @@
     using System.Web;
     using System.Web.Mvc;
 
+    using CarsAndDrivers.Models;
+
     public class CarProfileViewModelStThree
     {
+        public int UserProfileId { get; set; }
+
         [Required]
         [Display(Name = "Title")]
         public string Title { get; set; }
