@@ -14,13 +14,13 @@ namespace CarsAndDrivers
     {
         protected void Application_Start()
         {
+            var autoMapperConfig = new AutoMapperConfig(Assembly.GetExecutingAssembly());
+            autoMapperConfig.Execute();
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            var autoMapperConfig = new AutoMapperConfig(Assembly.GetExecutingAssembly());
-            autoMapperConfig.Execute();
         }
     }
 }

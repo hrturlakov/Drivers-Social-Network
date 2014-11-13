@@ -26,8 +26,6 @@
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="#">Top Cars</a></li>
                             <li><a href="#">Top Drivers</a></li>
-                            <li><a href="#">New Cars</a></li>
-                            <li><a href="#">New Drivers</a></li>
                             <li class="divider"></li>
                             <li><a href="#">Search</a></li>
                             <li><a href="#">News</a></li>
@@ -51,18 +49,18 @@
                                 <li>
                                     <a href="@Url.Action("Manage", "Account", routeValues: null)" title="Manage">
                                         @{
-                    var spanClass = string.Empty;
-                    if (User.IsInRole("Admin"))
-                    {
-                        spanClass = "label-danger";
-                    }
-                    else
-                    {
-                        spanClass = "label-success";
-                    }
-                    <span class="label @spanClass normal">
-                        @User.Identity.GetUserName()
-                    </span>
+                                            var spanClass = string.Empty;
+                                            if (User.IsInRole("Admin"))
+                                            {
+                                                spanClass = "label-danger";
+                                            }
+                                            else
+                                            {
+                                                spanClass = "label-success";
+                                            }
+                                            <span class="label @spanClass normal">
+                                                @User.Identity.GetUserName()
+                                            </span>
                                         }
                                     </a>
                                 </li>
@@ -84,7 +82,6 @@
                                 <li><a href="#">Settings</a></li>
                                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Exit</a></li>
                             </ul>
-
                         </li>
                     </ul>
                 }

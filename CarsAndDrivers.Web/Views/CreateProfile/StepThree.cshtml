@@ -7,7 +7,7 @@
 }
 
 <div class="row">
-    @using (Html.BeginForm("StepThree", "CreateProfile", FormMethod.Post, new { id = "mform", role = "form" }))
+    @using (Html.BeginForm("StepThree", "CreateProfile", FormMethod.Post, new { id = "mform", role = "form", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         <div class="col-md-8 col-md-offset-2 ">
@@ -65,7 +65,6 @@
                     </span>
                     <input type="text" class="form-control" readonly>
                 </div>
-                @Html.ValidationMessageFor(m => m.CarPictures, "", new { @class = "text-danger" })
                 <p><small>File format - JPEG or GIF without animation.Picture size of at least 600 × 800 pixels.</small></p>
                 <p><small class="text-danger">Warning: Upload ONLY your car pictures or your EX-Car Pictures.</small></p>
                 <p><small class="text-danger">Bad quality or stolen pictures will be deleted.</small></p>

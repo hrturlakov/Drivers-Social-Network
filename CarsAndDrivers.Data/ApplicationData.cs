@@ -24,58 +24,66 @@
             this.repositories = new Dictionary<Type, object>();
         }
 
-        public IRepository<UserProfile> UserProfiles //Change
+        public IApplicationDbContext Context
         {
             get
             {
-                return this.GetRepository<UserProfile>(); //Change
+                return this.context;
             }
         }
 
-        public IRepository<CarProfile> CarProfiles //Change
+        public IRepository<UserProfile> UserProfiles
         {
             get
             {
-                return this.GetRepository<CarProfile>(); //Change
+                return this.GetRepository<UserProfile>();
             }
         }
 
-        public IRepository<CarManufacturer> CarManufacturers //Change
+        public IRepository<CarProfile> CarProfiles
         {
             get
             {
-                return this.GetRepository<CarManufacturer>(); //Change
+                return this.GetRepository<CarProfile>();
             }
         }
 
-        public IRepository<CarModel> CarModels //Change
+        public IRepository<CarManufacturer> CarManufacturers
         {
             get
             {
-                return this.GetRepository<CarModel>(); //Change
+                return this.GetRepository<CarManufacturer>();
             }
         }
 
-        public IRepository<Country> Countries //Change
+        public IRepository<CarModel> CarModels
         {
             get
             {
-                return this.GetRepository<Country>(); //Change
-            }
-        }
-        public IRepository<ApplicationUser> Users //Change
-        {
-            get
-            {
-                return this.GetRepository<ApplicationUser>(); //Change
+                return this.GetRepository<CarModel>();
             }
         }
 
-        //public StudentsRepository Students //Change
+        public IRepository<Country> Countries
+        {
+            get
+            {
+                return this.GetRepository<Country>();
+            }
+        }
+        public IRepository<ApplicationUser> Users
+        {
+            get
+            {
+                return this.GetRepository<ApplicationUser>();
+            }
+        }
+
+        //public StudentsRepository Students
         //{
         //    get
         //    {
-        //        return (StudentsRepository)this.GetRepository<Student>(); //Change
+        //        return (StudentsRepository)this.GetRepository<Student>();
         //    }
         //}
 

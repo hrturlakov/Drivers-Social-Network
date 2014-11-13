@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarsAndDrivers.Models
+﻿namespace CarsAndDrivers.Models
 {
-    public class Country
+    using CarsAndDrivers.Data.Common.Models;
+
+    public class Country : DeletableEntity
     {
         public int Id { get; set; }
         

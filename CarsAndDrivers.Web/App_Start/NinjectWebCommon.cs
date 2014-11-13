@@ -68,9 +68,7 @@ namespace CarsAndDrivers.App_Start
             kernel.Bind<IApplicationData>().To<ApplicationData>();
 
             kernel.Bind(typeof(IRepository<>)).To(typeof(GenericRepository<>));
-
-            kernel.Bind(typeof(IDeletableEntityRepository<>))
-                .To(typeof(DeletableEntityRepository<>));
+            kernel.Bind(typeof(IDeletableEntityRepository<>)).To(typeof(DeletableEntityRepository<>));
         }        
     }
 }

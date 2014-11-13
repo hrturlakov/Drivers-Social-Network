@@ -1,9 +1,12 @@
 ﻿namespace CarsAndDrivers.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
 
-    public class UserProfile
+    using CarsAndDrivers.Data.Common.Models;
+
+    public class UserProfile : DeletableEntity
     {
         private ICollection<CarProfile> carProfiles;
         
@@ -11,6 +14,8 @@
         {
             this.carProfiles = new HashSet<CarProfile>();
         }
+
+        [Key]
         public int Id { get; set; }
 
         [Required]

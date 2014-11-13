@@ -7,15 +7,17 @@
 
     public interface IApplicationData : IDisposable
     {
-        IRepository<UserProfile> UserProfiles { get; } //Change
+        IApplicationDbContext Context { get; }
 
-        IRepository<CarProfile> CarProfiles { get; } //Change
+        IRepository<UserProfile> UserProfiles { get; }
 
-        IRepository<CarManufacturer> CarManufacturers { get; } //Change
+        IRepository<CarProfile> CarProfiles { get; }
 
-        IRepository<CarModel> CarModels { get; } //Change
+        IRepository<CarManufacturer> CarManufacturers { get; }
 
-        IRepository<Country> Countries { get; } //Change
+        IRepository<CarModel> CarModels { get; }
+
+        IRepository<Country> Countries { get; } 
 
         IRepository<ApplicationUser> Users { get; }
 

@@ -25,16 +25,15 @@
             return new ApplicationDbContext();
         }
 
+        public virtual IDbSet<UserProfile> UserProfiles { get; set; }
 
-        public IDbSet<UserProfile> UserProfiles { get; set; }
+        public virtual IDbSet<CarProfile> CarProfiles { get; set; }
 
-        public IDbSet<CarProfile> CarProfiles { get; set; }
+        public virtual IDbSet<CarManufacturer> CarManufacturers { get; set; }
 
-        public IDbSet<CarManufacturer> CarManufacturers { get; set; }
+        public virtual IDbSet<CarModel> CarModels { get; set; }
 
-        public IDbSet<CarModel> CarModels { get; set; }
-
-        public IDbSet<Country> Countries { get; set; }
+        public virtual IDbSet<Country> Countries { get; set; }
 
         public new IDbSet<T> Set<T>() where T : class
         {
@@ -44,7 +43,6 @@
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
-            this.ApplyDeletableEntityRules();
             return base.SaveChanges();
         }
 
@@ -67,20 +65,6 @@
                 {
                     entity.ModifiedOn = DateTime.Now;
                 }
-            }
-        }
-
-        private void ApplyDeletableEntityRules()
-        {
-            // Approach via @julielerman: http://bit.ly/123661P
-            foreach (var entry in this.ChangeTracker.Entries()
-                        .Where(e => e.Entity is IDeletableEntity && (e.State == EntityState.Deleted)))
-            {
-                var entity = (IDeletableEntity)entry.Entity;
-
-                entity.DeletedOn = DateTime.Now;
-                entity.IsDeleted = true;
-                entry.State = EntityState.Modified;
             }
         }
     }

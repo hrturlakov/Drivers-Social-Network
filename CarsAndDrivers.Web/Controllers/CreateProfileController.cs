@@ -1,19 +1,15 @@
 ﻿namespace CarsAndDrivers.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Web;
     using System.Web.Mvc;
 
-    using AutoMapper.QueryableExtensions;
+    using AutoMapper;
     using Microsoft.AspNet.Identity;
 
     using CarsAndDrivers.Data;
     using CarsAndDrivers.ViewModels.CreateProfile;
     using CarsAndDrivers.Models;
-    using AutoMapper;
 
     //[Authorize]
     public class CreateProfileController : BaseController
@@ -48,6 +44,8 @@
                     DrivingExperience = model.DrivingExperience,
                     AboutYou = model.AboutYou
                 };
+                
+                //var userProfile = Mapper.DynamicMap<UserProfile>(model);
 
                 this.Data.UserProfiles.Add(userProfile);
                 this.Data.SaveChanges();
@@ -122,14 +120,15 @@
                     return RedirectToAction("StepThree", "CreateProfile");
                 }
 
-                return View();
+                return View(model);
             }
 
-            return View();
+            return View(model);
         }
 
 
         // GET: CreateProfile/StepThree
+        //[ChildActionOnly]
         public ActionResult StepThree()
         {
             GetManufactures();
@@ -149,7 +148,8 @@
 
                     foreach (var picture in carModel.CarPictures)
                     {
-                        picture.SaveAs(uploadDir);
+                        var picturePath = Path.Combine(Server.MapPath(uploadDir), picture.FileName);
+                        picture.SaveAs(picturePath);
                     }    
                 }
                 

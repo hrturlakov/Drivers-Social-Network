@@ -2,9 +2,9 @@
 body {
 	height: 100%;
     font-family: verdana,Lora,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    background-color: #c0deed;
+    background-color: #353535;
 	background-image: url(../images/bg.png);
-	background-repeat:no-repeat;
+	background-repeat:repeat;
 }
 body  .white_rounded{
 	margin-top: 60px;
@@ -86,7 +86,17 @@ h6 {
     font-weight: 700;
     letter-spacing: 1px;
 }
+.panel-heading h4 {
+	margin:0;
+}
 
+.caption h5 {
+	margin: 0 0 6px;
+	color:#252525;
+}
+.media-body h6 {
+margin: 0 0 10px;
+}
 .btn {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -133,9 +143,7 @@ img::-moz-selection {
     background: 0 0;
 }
 
-body {
-    webkit-tap-highlight-color: rgba(255,255,255,.2);
-}
+
 /* ==============================
  * Social media Icon colors
  ================================ */
@@ -172,4 +180,17 @@ footer address a {
 
 footer address a:hover {
 	color:#fff;
+}
+.dark_gray {
+background-color:#222222;
+
+}
+.caption_p{
+	color:#fff;
+}
+.girl{
+color:#cc33cc;
+}
+.boy{
+color:#0066cc;
 }
