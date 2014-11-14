@@ -29,6 +29,8 @@
 
         public virtual IDbSet<CarProfile> CarProfiles { get; set; }
 
+        public virtual IDbSet<Comments> Comments { get; set; }
+
         public virtual IDbSet<CarManufacturer> CarManufacturers { get; set; }
 
         public virtual IDbSet<CarModel> CarModels { get; set; }

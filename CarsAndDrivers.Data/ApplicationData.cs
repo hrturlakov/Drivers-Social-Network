@@ -48,6 +48,14 @@
             }
         }
 
+        public IRepository<Comments> Comments 
+        { 
+            get
+            {
+                return this.GetRepository<Comments>();
+            }
+        }
+
         public IRepository<CarManufacturer> CarManufacturers
         {
             get

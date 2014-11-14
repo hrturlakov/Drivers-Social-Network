@@ -142,7 +142,7 @@
         {
             if (ModelState.IsValid)
             {
-                if (carModel.CarPictures != null)
+                if (carModel.CarPictures.FirstOrDefault() != null)
                 {
                     var uploadDir = this.GetUserPicturesDirectory(User.Identity.GetUserName());
 

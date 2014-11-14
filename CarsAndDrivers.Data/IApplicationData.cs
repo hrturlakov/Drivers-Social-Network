@@ -13,6 +13,8 @@
 
         IRepository<CarProfile> CarProfiles { get; }
 
+        IRepository<Comments> Comments { get; }
+
         IRepository<CarManufacturer> CarManufacturers { get; }
 
         IRepository<CarModel> CarModels { get; }

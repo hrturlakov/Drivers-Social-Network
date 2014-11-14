@@ -6,8 +6,9 @@
     using System.Web.Mvc;
 
     using CarsAndDrivers.Models;
+    using CarsAndDrivers.Web.Infrastructure.Mapping;
 
-    public class CarProfileViewModelStThree
+    public class CarProfileViewModelStThree : IMapFrom<UserProfile>
     {
         public int UserProfileId { get; set; }
 
@@ -41,8 +42,9 @@
         [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [Required]
         [DataType(DataType.Upload)]
         [Display(Name = "Car Pictures")]
-        public IEnumerable<HttpPostedFileBase> CarPictures { get; set; }
+        public ICollection<HttpPostedFileBase> CarPictures { get; set; }
     }
 }

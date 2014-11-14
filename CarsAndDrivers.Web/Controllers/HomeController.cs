@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using CarsAndDrivers.ViewModels.CreateProfile;
+using CarsAndDrivers.ViewModels.Home;
 
 namespace CarsAndDrivers.Controllers
 {
@@ -21,22 +22,12 @@ namespace CarsAndDrivers.Controllers
         //[ChildActionOnly]
         public ActionResult Index()
         {
-            var profiles = this.Data.UserProfiles.All().Project().To<UserProfileViewModelStOne>();
-            return View(profiles);
-        }
-
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            var indexView = new IndexViewModel();
+            var carsData = this.Data.CarProfiles.All().AsQueryable();
+            indexView.NewCarPosts = carsData.OrderByDescending(c => c.CreatedOn).Take(4).Project().To<CarProfileViewModel>();
+            indexView.TopCarPosts = carsData.OrderByDescending(c => c.Likes.Sum(l => l.Value)).Take(3).Project().To<CarProfileViewModel>();
+            indexView.NewDrivers = this.Data.UserProfiles.All().OrderByDescending(u => u.CreatedOn).Take(4).Project().To<UserProfileViewModel>();
+            return View(indexView);
         }
     }
 }

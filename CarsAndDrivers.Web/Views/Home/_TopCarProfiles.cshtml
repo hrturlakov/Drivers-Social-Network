@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CarsAndDrivers.ViewModels.Home.CarProfileViewModel>
+
+<div class="row text-center">
+    @foreach (var car in Model)
+    {
+        <div class="col-md-4 col-sm-4 hero-feature">
+            <div class="thumbnail">
+                <a href="~/Profile/@car.UserProfileId/@car.Id">
+                    <img class="img-rounded" src="~/images/post1_800x500_1.png" alt="" /> <!-- POst image size is very important, it must be 800x500 for tablet users. -->
+                </a>
+                <div class="caption">
+                    <h5>@Html.DisplayFor(model => car.Title)</h5>
+                    @Html.DisplayFor(model => car.CreatedOn)
+                    <hr>
+                    <a href="~/Profile/@car.UserProfileId">
+                        <img class="img-rounded" src="~/images/avatar.png" />
+                    </a>
+                    <span class="label label-danger normal">@Html.DisplayFor(model => car.UserProfile.User.UserName)</span>
+                    <p><small>@Html.DisplayFor(model => car.UserProfile.Country), @Html.DisplayFor(model => car.UserProfile.Age)</small></p>
+                    @{
+                        var likes = car.Likes.Sum(l => l.Value);
+                    }
+                    <p class="text-muted">Fame points <span class="label label-success normal">@likes</span></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -6,7 +6,7 @@
     using CarsAndDrivers.Web.Infrastructure.Mapping;
     using System.Web.Mvc;
 
-    public class UserProfileViewModelStOne: IMapFrom<UserProfile>
+    public class UserProfileViewModelStOne : IMapFrom<UserProfile>
     {
         [HiddenInput(DisplayValue = false)]
         public int? Id { get; set; }

@@ -1,19 +1,16 @@
-﻿namespace CarsAndDrivers.Models
+﻿namespace CarsAndDrivers.ViewModels.Home
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
 
-    using CarsAndDrivers.Data.Common.Models;
+    using CarsAndDrivers.Models;
+    using CarsAndDrivers.Web.Infrastructure.Mapping;
+    using System.ComponentModel.DataAnnotations;
 
-    public class CarProfile : DeletableEntity
+    public class CarProfileViewModel : IMapFrom<CarProfile>
     {
-        private ICollection<Like> likes;
-        
-        public CarProfile()
-        {
-            this.likes = new HashSet<Like>();
-        }
-
         public int Id { get; set; }
 
         public int UserProfileId { get; set; }
@@ -36,10 +33,10 @@
 
         public string Description { get; set; }
 
-        public virtual ICollection<Like> Likes
-        {
-            get { return likes; }
-            set { likes = value; }
-        }
+        public virtual ICollection<Like> Likes { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
     }
 }

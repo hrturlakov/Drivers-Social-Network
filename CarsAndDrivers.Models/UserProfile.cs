@@ -9,10 +9,12 @@
     public class UserProfile : DeletableEntity
     {
         private ICollection<CarProfile> carProfiles;
+        private ICollection<Comments> comments;
         
         public UserProfile()
         {
             this.carProfiles = new HashSet<CarProfile>();
+            this.comments = new HashSet<Comments>();
         }
 
         [Key]
@@ -48,6 +50,12 @@
         {
             get { return carProfiles; }
             set { carProfiles = value; }
+        }
+
+        public virtual ICollection<Comments> Comments
+        {
+            get { return comments; }
+            set { comments = value; }
         }
     }
 }
