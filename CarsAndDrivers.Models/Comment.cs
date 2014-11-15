@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace CarsAndDrivers.Models{
     
-    public class Comments : DeletableEntity
+    public class Comment : DeletableEntity
     {
         public int Id { get; set; }
 
-        public string UserId { get; set; }
+        public string Text { get; set; }
 
-        public ApplicationUser User { get; set; }
+        public string SenderId { get; set; }
 
-        public string Comment { get; set; }
+        public virtual UserProfile Sender { get; set; }
+
+        public int UserProfileId { get; set; }
 
         public virtual UserProfile UserProfile { get; set; }
     }

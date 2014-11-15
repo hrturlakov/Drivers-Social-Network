@@ -18,7 +18,7 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">Posts</a></li>
+                    <li><a href="~/Posts">Posts</a></li>
                     <li><a href="#contact">Cars</a></li>
                     <li><a href="#contact">Drivers</a></li>
                     <li class="dropdown">
@@ -36,7 +36,7 @@
                     </li>
                 </ul>
 
-                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                @using (Html.BeginForm("LogOff", "Account", new { area = ""}, FormMethod.Post, new { id = "logoutForm" }))
                 {
                     @Html.AntiForgeryToken()
                     <ul class="nav navbar-nav navbar-right">
@@ -47,7 +47,7 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    <a href="@Url.Action("Manage", "Account", routeValues: null)" title="Manage">
+                                    <a href="@Url.Action("Manage", "Account", new { area = ""})" title="Manage">
                                         @{
                                             var spanClass = string.Empty;
                                             if (User.IsInRole("Admin"))

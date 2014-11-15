@@ -443,7 +443,7 @@ namespace CarsAndDrivers.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
-            return RedirectToAction("Index", "Account");
+            return RedirectToAction("Index", "Account", new { area = ""});
         }
 
         //

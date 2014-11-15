@@ -1,12 +1,7 @@
 ﻿namespace CarsAndDrivers.ViewModels.CreateProfile
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Web;
 
-    using CarsAndDrivers.Models;
-    using CarsAndDrivers.Web.Infrastructure.Mapping;
     using System.ComponentModel.DataAnnotations;
 
     public class UserProfileViewModelStTwo

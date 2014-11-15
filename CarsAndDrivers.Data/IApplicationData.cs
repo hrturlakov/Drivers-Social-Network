@@ -13,7 +13,9 @@
 
         IRepository<CarProfile> CarProfiles { get; }
 
-        IRepository<Comments> Comments { get; }
+        IRepository<CarPicture> CarPictures { get; }
+
+        IRepository<Comment> Comments { get; }
 
         IRepository<CarManufacturer> CarManufacturers { get; }
 

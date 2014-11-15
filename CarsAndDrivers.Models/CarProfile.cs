@@ -8,10 +8,12 @@
     public class CarProfile : DeletableEntity
     {
         private ICollection<Like> likes;
+        private ICollection<CarPicture> carPictures;
         
         public CarProfile()
         {
             this.likes = new HashSet<Like>();
+            this.carPictures = new HashSet<CarPicture>();
         }
 
         public int Id { get; set; }
@@ -40,6 +42,12 @@
         {
             get { return likes; }
             set { likes = value; }
+        }
+
+        public virtual ICollection<CarPicture> CarPicrutes
+        {
+            get { return carPictures; }
+            set { carPictures = value; }
         }
     }
 }

@@ -34,18 +34,8 @@
         {
             if (ModelState.IsValid)
             {
-                var userProfile = new UserProfile()
-                {
-                    UserId = User.Identity.GetUserId(),
-                    Name = model.Name,
-                    Age = model.Age,
-                    Gender = model.Gender,
-                    Country = model.Country,
-                    DrivingExperience = model.DrivingExperience,
-                    AboutYou = model.AboutYou
-                };
-                
-                //var userProfile = Mapper.DynamicMap<UserProfile>(model);
+                model.UserId = User.Identity.GetUserId();
+                var userProfile = Mapper.Map<UserProfile>(model);
 
                 this.Data.UserProfiles.Add(userProfile);
                 this.Data.SaveChanges();
@@ -142,33 +132,42 @@
         {
             if (ModelState.IsValid)
             {
-                if (carModel.CarPictures.FirstOrDefault() != null)
+                var userId = User.Identity.GetUserId();
+                var userProfile = this.Data.UserProfiles.All().FirstOrDefault(u => u.UserId == userId);
+                carModel.UserProfileId = userProfile.Id;
+                //var carProfile = new CarProfile()
+                //{
+                //    UserProfile = userProfile,
+                //    Title = carModel.Title,
+                //    Manufacturer = carModel.Manufacturer,
+                //    Model = carModel.Model,
+                //    ReleaseYear = carModel.ReleaseYear,
+                //    Engine = carModel.Engine,
+                //    HorsePower = carModel.HorsePower,
+                //    Color = carModel.Color,
+                //    Description = carModel.Description
+                //};
+
+                var carProfile = Mapper.Map<CarProfile>(carModel);
+
+                if (carModel.UploadCarPictures.FirstOrDefault() != null)
                 {
                     var uploadDir = this.GetUserPicturesDirectory(User.Identity.GetUserName());
 
-                    foreach (var picture in carModel.CarPictures)
+                    foreach (var picture in carModel.UploadCarPictures)
                     {
                         var picturePath = Path.Combine(Server.MapPath(uploadDir), picture.FileName);
+                        var pictureUrl = Path.Combine(uploadDir, picture.FileName);
+                        var carPicture = new CarPicture() 
+                        { 
+                            Url = pictureUrl
+                        };
+                        
+                        carProfile.CarPicrutes.Add(carPicture);
                         picture.SaveAs(picturePath);
                     }    
                 }
                 
-                var userId = User.Identity.GetUserId();
-                var userProfile = this.Data.UserProfiles.All().AsQueryable().FirstOrDefault(u => u.UserId == userId);
-
-                var carProfile = new CarProfile()
-                {
-                    UserProfile = userProfile,
-                    Title = carModel.Title,
-                    ReleaseYear = carModel.ReleaseYear,
-                    Manufacturer = carModel.Manufacturer,
-                    Model = carModel.Model,
-                    Engine = carModel.Engine,
-                    HorsePower = carModel.HorsePower,
-                    Color = carModel.Color,
-                    Description = carModel.Description
-                };
-
                 userProfile.CarProfiles.Add(carProfile);
                 this.Data.CarProfiles.Add(carProfile);
                 this.Data.SaveChanges();

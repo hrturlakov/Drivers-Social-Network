@@ -8,8 +8,9 @@
     using CarsAndDrivers.Models;
     using CarsAndDrivers.Web.Infrastructure.Mapping;
 
-    public class CarProfileViewModelStThree : IMapFrom<UserProfile>
+    public class CarProfileViewModelStThree : IMapFrom<CarProfile>
     {
+        [HiddenInput(DisplayValue = false)]
         public int UserProfileId { get; set; }
 
         [Required]
@@ -45,6 +46,6 @@
         [Required]
         [DataType(DataType.Upload)]
         [Display(Name = "Car Pictures")]
-        public ICollection<HttpPostedFileBase> CarPictures { get; set; }
+        public ICollection<HttpPostedFileBase> UploadCarPictures { get; set; }
     }
 }

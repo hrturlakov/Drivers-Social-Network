@@ -1,6 +1,4 @@
-﻿@model CarsAndDrivers.ViewModels.Home.IndexViewModel
-
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
@@ -12,7 +10,7 @@
             </div>
             <div class="panel-body">
                 <!-- latest 4 car posts -->
-                @Html.Partial("_NewCarProfiles", Model.NewCarPosts)
+                @Html.Action("NewCarProfiles")
             </div>
         </div>
     </div>
@@ -23,7 +21,7 @@
                 <h4 class="intro-text">Ad<small> | Support us</small></h4>
             </div>
             <div class="panel-body">
-                <img class="img-responsive center-block" src="~/images/ad300x250.jpg" alt="">
+                <img class="img-responsive center-block" src="/images/ad300x250.jpg" alt="">
             </div>
         </div>
         <div class="panel panel-default text-center">
@@ -46,7 +44,7 @@
             </div>
             <div class="panel-body">
                 <!-- latest 4 registered drivers 1 -->
-                @Html.Partial("_NewDrivers", Model.NewDrivers)
+                @Html.Action("NewDrivers")
             </div>
         </div>
     </div>
@@ -57,47 +55,7 @@
                 <h4 class="intro-text">Latest Comments</h4>
             </div>
             <div class="panel-body">
-                <!-- latest four Comments -->
-                <!-- Commment 1 -->
-                <div class="media">
-                    <a class="media-left" href="#">
-                        <img class="img-rounded" src="images/avatar.png" />
-                    </a>
-                    <div class="media-body">
-                        <h6 class="media-heading"><span class="label label-danger normal">Dart Vader</span><span class="text-muted"> 1 Minute</span></h6>
-                        <h6>This BMW m Power is such a gem | <small>View comment</small></h6>
-                    </div>
-                </div>
-                <!-- Commment 2 -->
-                <div class="media">
-                    <a class="media-left" href="#">
-                        <img class="img-rounded" src="images/avatar.png" />
-                    </a>
-                    <div class="media-body">
-                        <h6 class="media-heading"><span class="label label-danger normal">Dart Vader</span><span class="text-muted"> 1 Minute</span></h6>
-                        <h6>This BMW m Power is such a gem | <small>View comment</small></h6>
-                    </div>
-                </div>
-                <!-- Commment 3 -->
-                <div class="media">
-                    <a class="media-left" href="#">
-                        <img class="img-rounded" src="images/avatar.png" />
-                    </a>
-                    <div class="media-body">
-                        <h6 class="media-heading"><span class="label label-danger normal">Dart Vader</span><span class="text-muted"> 1 Minute</span></h6>
-                        <h6>This BMW m Power is such a gem | <small>View comment</small></h6>
-                    </div>
-                </div>
-                <!-- Commment 4 -->
-                <div class="media">
-                    <a class="media-left" href="#">
-                        <img class="img-rounded" src="images/avatar.png" />
-                    </a>
-                    <div class="media-body">
-                        <h6 class="media-heading"><span class="label label-danger normal">Dart Vader</span><span class="text-muted"> 1 Minute</span></h6>
-                        <h6>This BMW m Power is such a gem | <small>View comment</small></h6>
-                    </div>
-                </div>
+                @Html.Action("LatestComments")
             </div>
         </div>
     </aside>
@@ -109,7 +67,7 @@
                 <h4 class="intro-text">Latest Online users<small> |  Updated every 24 Hour</small></h4>
             </div>
             <div class="panel-body">
-                @Html.Partial("_OnlineUsers")
+                @Html.Action("OnlineUsers")
             </div>
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
@@ -117,7 +75,7 @@
                 </div>
                 <div class="panel-body">
                     <!-- Top Car Posts of the Week car posts 1 -->
-                    @Html.Partial("_TopCarProfiles", Model.TopCarPosts)
+                    @Html.Action("TopCarProfiles")
                 </div>
             </div>
         </div>
@@ -129,7 +87,7 @@
             <div class="panel-body">
                 <div class="row text-center">
                     <div class="col-md-12 col-sm-12">
-                        <img class="img-responsive center-block" src="~/images/ad728x90.png" alt="">
+                        <img class="img-responsive center-block" src="/images/ad728x90.png" alt="">
                     </div>
                 </div>
             </div>
@@ -152,7 +110,7 @@
             <div class="panel-heading">
                 <h4 class="intro-text">Pretty Driver of the Week<small> | Determined by Admins</small></h4>
             </div>
-            @Html.Partial("_BestDriver")
+            @Html.Action("BestDriver")
         </div>
     </aside>
 </section>

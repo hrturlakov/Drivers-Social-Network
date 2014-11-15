@@ -48,11 +48,19 @@
             }
         }
 
-        public IRepository<Comments> Comments 
+        public IRepository<CarPicture> CarPictures
+        {
+            get
+            {
+                return this.GetRepository<CarPicture>();
+            }
+        }
+
+        public IRepository<Comment> Comments 
         { 
             get
             {
-                return this.GetRepository<Comments>();
+                return this.GetRepository<Comment>();
             }
         }
 

@@ -1,0 +1,7 @@
+﻿@model DateTime
+
+@{
+    var time = DateTime.Now - @Model;
+}
+
+@String.Format("{0}", @time.Minutes) Minutes

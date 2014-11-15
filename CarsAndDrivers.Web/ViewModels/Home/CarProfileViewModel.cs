@@ -3,13 +3,13 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web;
+
+    using AutoMapper;
 
     using CarsAndDrivers.Models;
     using CarsAndDrivers.Web.Infrastructure.Mapping;
-    using System.ComponentModel.DataAnnotations;
 
-    public class CarProfileViewModel : IMapFrom<CarProfile>
+    public class CarProfileViewModel : IMapFrom<CarProfile>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -33,10 +33,19 @@
 
         public string Description { get; set; }
 
+        public string CarPictureUrl { get; set; }
+
         public virtual ICollection<Like> Likes { get; set; }
 
         public DateTime CreatedOn { get; set; }
 
         public DateTime? ModifiedOn { get; set; }
+
+        public void CreateMappings(IConfiguration configuration)
+        {
+            configuration.CreateMap<CarProfile, CarProfileViewModel>()
+                .ForMember(m => m.CarPictureUrl, opt => opt.MapFrom(c => c.CarPicrutes.FirstOrDefault().Url))
+                .ReverseMap();
+        }
     }
 }

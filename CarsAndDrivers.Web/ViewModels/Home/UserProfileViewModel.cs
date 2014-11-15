@@ -1,17 +1,12 @@
-﻿using CarsAndDrivers.Models;
-using CarsAndDrivers.Web.Infrastructure.Mapping;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace CarsAndDrivers.ViewModels.Home
+﻿namespace CarsAndDrivers.ViewModels.Home
 {
+    using System.Collections.Generic;
+
+    using CarsAndDrivers.Models;
+    using CarsAndDrivers.Web.Infrastructure.Mapping;
+
     public class UserProfileViewModel : IMapFrom<UserProfile>
     {
-        public int Id { get; set; }
-
         public string UserId { get; set; }
 
         public virtual ApplicationUser User { get; set; }
@@ -33,5 +28,7 @@ namespace CarsAndDrivers.ViewModels.Home
         public string PictureUrl { get; set; }
 
         public virtual ICollection<CarProfile> CarProfiles { get; set; }
+
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

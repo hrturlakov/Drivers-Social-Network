@@ -11,7 +11,9 @@
 
         IDbSet<CarProfile> CarProfiles { get; set; }
 
-        IDbSet<Comments> Comments { get; set; }
+        IDbSet<CarPicture> CarPictures { get; set; }
+
+        IDbSet<Comment> Comments { get; set; }
 
         IDbSet<CarManufacturer> CarManufacturers { get; set; }
 

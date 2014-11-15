@@ -64,8 +64,9 @@
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="CarManufacturer.cs" />
     <Compile Include="CarModel.cs" />
+    <Compile Include="CarPicture.cs" />
     <Compile Include="CarProfile.cs" />
-    <Compile Include="Comments.cs" />
+    <Compile Include="Comment.cs" />
     <Compile Include="Country.cs" />
     <Compile Include="Gender.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />

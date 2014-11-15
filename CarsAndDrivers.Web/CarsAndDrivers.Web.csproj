@@ -212,6 +212,12 @@
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Countries\CountryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UserProfiles\UserProfileViewModel.cs" />
+    <Compile Include="Areas\Drivers\Controllers\DetailsController.cs" />
+    <Compile Include="Areas\Drivers\Controllers\TopDriversController.cs" />
+    <Compile Include="Areas\Drivers\DriversAreaRegistration.cs" />
+    <Compile Include="Areas\Drivers\ViewModels\CarProfileDetailsViewModel.cs" />
+    <Compile Include="Areas\Drivers\ViewModels\CommentsViewModel.cs" />
+    <Compile Include="Areas\Drivers\ViewModels\UserProfileDetailsViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
@@ -228,7 +234,6 @@
     <Compile Include="ViewModels\CreateProfile\UserProfileViewModelStTwo.cs" />
     <Compile Include="ViewModels\Home\CarProfileViewModel.cs" />
     <Compile Include="ViewModels\Home\CommentsViewModel.cs" />
-    <Compile Include="ViewModels\Home\IndexViewModel.cs" />
     <Compile Include="ViewModels\Home\UserProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -242,13 +247,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\SiteLandingPage.css" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Areas\Administration\Views\web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -268,13 +266,32 @@
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Time.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\EditorTemplates\Url.cshtml" />
+    <Content Include="Areas\Drivers\Views\web.config" />
+    <Content Include="Areas\Drivers\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Drivers\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Drivers\Views\TopDrivers\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Areas\Drivers\Views\Details\All.cshtml" />
+    <Content Include="Areas\Drivers\Views\Details\_Comments.cshtml" />
+    <Content Include="Areas\Drivers\Views\Details\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Areas\Drivers\Views\Details\DisplayTemplates\CommentTime.cshtml" />
+    <Content Include="Areas\Drivers\Views\Details\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Areas\Drivers\Views\Details\_CarProfiles.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cars.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\jquery-2.1.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easing.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -284,6 +301,7 @@
     <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js" />
     <Content Include="Scripts\MainSite.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -336,6 +354,8 @@
     <Content Include="Views\Home\_TopCarProfiles.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\CarProfileViewModel.cshtml" />
     <Content Include="Views\Home\_BestDriver.cshtml" />
+    <Content Include="Views\Home\_LatestComments.cshtml" />
+    <Content Include="Views\Home\DisplayTemplates\CommentTime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

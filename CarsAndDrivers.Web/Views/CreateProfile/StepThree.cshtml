@@ -56,15 +56,16 @@
                 @Html.ValidationMessageFor(m => m.Color, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(m => m.CarPictures)
+                @Html.LabelFor(m => m.UploadCarPictures)
                 <div class="input-group">
                     <span class="input-group-btn">
                         <span class="btn btn-primary btn-file">
-                            Browse&hellip; @Html.TextBoxFor(m => m.CarPictures, new { type = "file", multiple = "true" })
+                            Browse&hellip; @Html.TextBoxFor(m => m.UploadCarPictures, new { type = "file", multiple = "true" })
                         </span>
                     </span>
                     <input type="text" class="form-control" readonly>
                 </div>
+                @Html.ValidationMessageFor(m => m.UploadCarPictures, "", new { @class = "text-danger" })
                 <p><small>File format - JPEG or GIF without animation.Picture size of at least 600 × 800 pixels.</small></p>
                 <p><small class="text-danger">Warning: Upload ONLY your car pictures or your EX-Car Pictures.</small></p>
                 <p><small class="text-danger">Bad quality or stolen pictures will be deleted.</small></p>

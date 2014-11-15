@@ -1,0 +1,133 @@
+﻿@model CarsAndDrivers.Areas.Drivers.ViewModels.UserProfileDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Drivers/Views/Shared/_Layout.cshtml";
+}
+
+<section class="row">
+    <!-- Aside -->
+    <aside class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading text-left">
+                <div class="media">
+                    <a class="media-left media-middle" href="#">
+                        <img src="@Html.DisplayFor(model => model.AvatarUrl)" />
+                        <!-- Avatars van be ANimated, for Dynamic and beautiful user content 64x64 Max Sise -->
+                    </a>
+                    <div class="media-body">
+                        <h6 class="media-heading"><span class="label label-danger normal">@Html.DisplayFor(model => model.User.UserName)</span></h6>
+                        @{
+                            var genderClass = Model.Gender.ToString() == "Male" ? "fa fa-male boy" : "fa fa-female girl";
+                        }
+                        <h6><small>@Html.DisplayFor(model => model.Country) | @Html.DisplayFor(model => model.Age)  |  </small><i class="@genderClass"></i></h6>
+                        <h6><small>Last online - Before 2 Hours</small></h6>
+                        <h6><small>Driving experience: from @Html.DisplayFor(model => model.DrivingExperience)</small></h6>
+                    </div>
+                </div>
+                <div class="panel-body text-center">
+                    <a href="#">
+                        <img class="img-responsive img-rounded center-block" src="@Html.DisplayFor(model => model.PictureUrl)" alt="" />
+                        <!-- Try putting bigger size image in height: user_pic_250x400.png - Nothing is break, everything looks great, no matter what size of picture is.
+                        Recommended: 250 px Width and around 400-500 px Height.-->
+                    </a>
+                </div>
+                <div class="panel-body">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-envelope"></span> Message me</a>
+                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-user"></span> Friend Request</a>
+                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-road"></span> View all my Car Posts</a>
+                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-book"></span> View all my Blog Posts</a>
+                        <a href="#" class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-flag"></span> Block or Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default text-left">
+            <div class="panel-heading">
+                <h4 class="intro-text">About me</h4>
+            </div>
+            <div class="panel-body">
+                <p>@Html.DisplayFor(model => model.AboutYou)</p>
+            </div>
+        </div>
+        <div class="panel panel-default text-left">
+            <div class="panel-heading">
+                <h4 class="intro-text">My Reputation | <small>1423</small></h4>
+            </div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-success btn-md btn-block">
+                    <span class="glyphicon glyphicon-thumbs-up"></span>  Add 1 Point
+                </a>
+                <a href="#" class="btn btn-danger btn-md btn-block">
+                    <span class="glyphicon glyphicon-thumbs-down"></span>  Remove 1 Point
+                </a>
+                <p class="text-center"><small>You can vote only one time per day.</small></p>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="intro-text">Ad<small> | Support us</small></h4>
+            </div>
+            <div class="panel-body">
+                <img class="img-responsive center-block" src="~/images/ad300x250.jpg" alt="">
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="intro-text">My Profile Comments</h4>
+            </div>
+            <div class="panel-body">
+                @using (Ajax.BeginForm("Comment", new { id = Model.Id},
+                    new AjaxOptions
+                    {
+                        HttpMethod = "POST",
+                        UpdateTargetId = "comments",
+                        InsertionMode = InsertionMode.Replace,
+                        OnSuccess = "OnSuccess"
+                    }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <label for="Few words about you">Tell me something</label>
+                        <textarea id="comment-text" name="comment" class="form-control"></textarea>
+                        <p><small>Please do not spam</small></p>
+                    </div>
+                    <input type="submit" class="btn btn-default btn-md btn-block" value="Comment" />
+                }
+            </div>
+            <div id="comments" class="panel-body">
+                <!-- latest four Comments -->
+                @Html.Partial("_Comments", Model.Comments)
+                <p><small> View All</small></p>
+            </div>
+
+        </div>
+    </aside>
+    <!-- // Aside -->
+    <div class="col-md-8 col-sm-12">
+        
+                <!-- My latest 4 car posts -->
+                @Html.Partial("_CarProfiles", Model.CarProfiles)
+            
+        <div class="panel panel-default text-center">
+            <div class="panel-body">
+                <div class="row text-center">
+                    <div class="col-md-12 col-sm-12">
+                        <img class="img-responsive center-block" src="/images/ad728x90.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    function OnSuccess(response) {
+        $('#comment-text').val('');
+    }
+    </script>
+}
+
+
