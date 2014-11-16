@@ -1,16 +1,16 @@
 ﻿@model CarsAndDrivers.ViewModels.Home.CarProfileViewModel
 
 <div class="thumbnail">
-    <a href="~/Profile/@Model.UserProfileId/@Model.Id">
-        <img class="img-rounded" src="@Model.CarPictureUrl" alt="" /> 
+    <a href="@Url.Action("All", "Details", new { area = "Drivers", id = @Model.UserProfileId, CarProfile = @Model.Id }, null)">
+        <img class="img-rounded" src="@Model.CarPictureUrl" alt="" />
         <!-- POst image size is very important, it must be 800x500 for tablet users. -->
     </a>
     <div class="caption">
         <h5>@Html.DisplayFor(model => Model.Title)</h5>
         @Html.DisplayFor(model => Model.CreatedOn)
         <hr>
-        <a href="~/Drivers/Details/All/@Model.UserProfileId">
-            <img class="img-rounded" src="@Model.UserProfile.AvatarUrl" />
+        <a href="@Url.Action("All", "Details", new { area = "Drivers", id = @Model.UserProfileId }, null)">
+            <img class="img-rounded avatar" src="@Model.UserProfile.AvatarUrl" />
         </a>
         <span class="label label-danger normal">@Html.DisplayFor(model => Model.UserProfile.User.UserName)</span>
         <p><small>@Html.DisplayFor(model => Model.UserProfile.Country), @Html.DisplayFor(model => Model.UserProfile.Age)</small></p>

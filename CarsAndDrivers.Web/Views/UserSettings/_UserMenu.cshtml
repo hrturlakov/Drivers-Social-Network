@@ -1,0 +1,52 @@
+﻿@using Microsoft.AspNet.Identity
+@model CarsAndDrivers.ViewModels.UserSettings.UserProfileMenuViewModel
+
+@using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" }))
+{
+    @Html.AntiForgeryToken()
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown active umenu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img class="img-rounded avatar" src="@Model.AvatarUrl" />
+                <span class="caret text-success"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <a href="@Url.Action("Manage", "Account", new { area = ""})" title="Manage">
+                        @{
+                            var spanClass = string.Empty;
+                            if (User.IsInRole("Admin"))
+                            {
+                                spanClass = "label-danger";
+                            }
+                            else
+                            {
+                                spanClass = "label-success";
+                            }
+                            <span class="label @spanClass normal">
+                                @User.Identity.GetUserName()
+                            </span>
+                        }
+                    </a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="@Url.Action("All", "Details", new { area = "Drivers", id = @Model.Id})"> <i class="glyphicon glyphicon-user"></i> User Profile</a></li>
+
+                <li><a href="@Url.Action("Profile", "PostNewCar", new { area = "Drivers", id = @Model.Id})"> <i class="fa fa-car"></i> Post new car</a></li>
+                <li class="divider"></li>
+                <li><a href="@Url.Action("UpdatePicture", "UserSettings", new { area = ""})">Avatar & Profile pictures</a></li>
+                <li class="divider"></li>
+                <li>
+                    <a href="#">Messages <span class="label label-success normal">12</span></a>
+                </li>
+                <li>
+                    <a href="#">Notifications <span class="label label-success normal">35</span></a>
+                </li>
+                <li><a href="#">Friends</a></li>
+                <li><a href="#">Black List</a></li>
+                <li><a href="@Url.Action("Index", "UserSettings", new { area = ""})">Settings</a></li>
+                <li><a href="javascript:document.getElementById('logoutForm').submit()">Exit</a></li>
+            </ul>
+        </li>
+    </ul>
+}

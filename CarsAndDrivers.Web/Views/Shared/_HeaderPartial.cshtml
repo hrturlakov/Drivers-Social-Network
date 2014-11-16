@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNet.Identity
-
+﻿
 <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top border-bottom" role="navigation">
@@ -17,74 +16,35 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="~/Posts">Posts</a></li>
-                    <li><a href="#contact">Cars</a></li>
-                    <li><a href="#contact">Drivers</a></li>
+                    <li class="active"><a href="~/Home">Home</a></li>
+                    <li><a href="#">Top Cars</a></li>
+                    <li><a href="#">Top Drivers</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <span class="caret text-success"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Top Cars</a></li>
-                            <li><a href="#">Top Drivers</a></li>
-                            <li class="divider"></li>
                             <li><a href="#">Search</a></li>
+                            <li class="divider"></li>
                             <li><a href="#">News</a></li>
-                            <li><a href="#">Premium Account</a></li>
                             <li><a href="#">Help</a></li>
                             <li><a href="#">Blog</a></li>
                         </ul>
                     </li>
-                </ul>
-
-                @using (Html.BeginForm("LogOff", "Account", new { area = ""}, FormMethod.Post, new { id = "logoutForm" }))
-                {
-                    @Html.AntiForgeryToken()
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown active">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img class="img-rounded" src="~/images/avatar.png" />
-                                <span class="caret text-success"></span>
-                            </a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin panel<span class="caret text-success"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="@Url.Action("Manage", "Account", new { area = ""})" title="Manage">
-                                        @{
-                                            var spanClass = string.Empty;
-                                            if (User.IsInRole("Admin"))
-                                            {
-                                                spanClass = "label-danger";
-                                            }
-                                            else
-                                            {
-                                                spanClass = "label-success";
-                                            }
-                                            <span class="label @spanClass normal">
-                                                @User.Identity.GetUserName()
-                                            </span>
-                                        }
-                                    </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li><a href="#"> <i class="fa fa-car"></i> Post new Car</a></li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Avatar and Profile picture</li>
-                                <li><a href="#">Change Avatar</a></li>
-                                <li><a href="#">Change Profile picture</a></li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">Messages <span class="label label-success normal">12</span></a>
-                                </li>
-                                <li>
-                                    <a href="#">Notifications <span class="label label-success normal">35</span></a>
-                                </li>
-                                <li><a href="#">Friends</a></li>
-                                <li><a href="#">Black List</a></li>
-                                <li><a href="#">Settings</a></li>
-                                <li><a href="javascript:document.getElementById('logoutForm').submit()">Exit</a></li>
+                                <li><a href="#">Users</a></li>
+                                <li><a href="#">UserProfiles</a></li>
+                                <li><a href="#">CarProfiles</a></li>
+                                <li><a href="#">CarPictures</a></li>
+                                <li><a href="#">Comments</a></li>
+                                <li><a href="#">Countries</a></li>
                             </ul>
                         </li>
-                    </ul>
-                }
+                    }
+                </ul>
+                @Html.Action("UserMenu", "UserSettings", new { area = "" })
             </div><!--/.nav-collapse -->
         </div>
     </nav>

@@ -212,6 +212,7 @@
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Countries\CountryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UserProfiles\UserProfileViewModel.cs" />
+    <Compile Include="Areas\Drivers\Controllers\PostNewCarController.cs" />
     <Compile Include="Areas\Drivers\Controllers\DetailsController.cs" />
     <Compile Include="Areas\Drivers\Controllers\TopDriversController.cs" />
     <Compile Include="Areas\Drivers\DriversAreaRegistration.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CreateProfileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UserSettingsController.cs" />
     <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,6 +237,7 @@
     <Compile Include="ViewModels\Home\CarProfileViewModel.cs" />
     <Compile Include="ViewModels\Home\CommentsViewModel.cs" />
     <Compile Include="ViewModels\Home\UserProfileViewModel.cs" />
+    <Compile Include="ViewModels\UserSettings\UserProfileMenuViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -281,7 +284,9 @@
     <Content Include="Areas\Drivers\Views\Details\DisplayTemplates\CommentTime.cshtml" />
     <Content Include="Areas\Drivers\Views\Details\DisplayTemplates\DateTime.cshtml" />
     <Content Include="Areas\Drivers\Views\Details\_CarProfiles.cshtml" />
+    <Content Include="Areas\Drivers\Views\PostNewCar\Profile.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="images\default\avatar.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\cars.js" />
@@ -354,8 +359,14 @@
     <Content Include="Views\Home\_TopCarProfiles.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\CarProfileViewModel.cshtml" />
     <Content Include="Views\Home\_BestDriver.cshtml" />
-    <Content Include="Views\Home\_LatestComments.cshtml" />
+    <Content Include="Views\Shared\_LatestComments.cshtml" />
     <Content Include="Views\Home\DisplayTemplates\CommentTime.cshtml" />
+    <Content Include="Views\UserSettings\Index.cshtml" />
+    <Content Include="Views\Shared\_AsideAd.cshtml" />
+    <Content Include="Views\Shared\_BottomAd.cshtml" />
+    <Content Include="Views\Shared\_SocialNetworks.cshtml" />
+    <Content Include="Views\UserSettings\UpdatePicture.cshtml" />
+    <Content Include="Views\UserSettings\_UserMenu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

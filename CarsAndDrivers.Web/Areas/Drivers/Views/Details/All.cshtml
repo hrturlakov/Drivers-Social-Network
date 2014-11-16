@@ -1,6 +1,6 @@
 ﻿@model CarsAndDrivers.Areas.Drivers.ViewModels.UserProfileDetailsViewModel
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile Details";
     Layout = "~/Areas/Drivers/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
         <div class="panel panel-default">
             <div class="panel-heading text-left">
                 <div class="media">
-                    <a class="media-left media-middle" href="#">
+                    <a class="media-left media-heading" href="#">
                         <img src="@Html.DisplayFor(model => model.AvatarUrl)" />
                         <!-- Avatars van be ANimated, for Dynamic and beautiful user content 64x64 Max Sise -->
                     </a>
@@ -35,8 +35,6 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-envelope"></span> Message me</a>
                         <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-user"></span> Friend Request</a>
-                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-road"></span> View all my Car Posts</a>
-                        <a href="#" class="list-group-item list-group-item-warning"><span class="glyphicon glyphicon-book"></span> View all my Blog Posts</a>
                         <a href="#" class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-flag"></span> Block or Report</a>
                     </div>
                 </div>
@@ -100,7 +98,6 @@
                 @Html.Partial("_Comments", Model.Comments)
                 <p><small> View All</small></p>
             </div>
-
         </div>
     </aside>
     <!-- // Aside -->

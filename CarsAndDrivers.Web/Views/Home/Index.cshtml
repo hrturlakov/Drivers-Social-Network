@@ -3,113 +3,37 @@
 }
 
 <section class="row">
-    <div class="col-md-8">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h4 class="intro-text">New Car Posts<small> |  Wow, look at those cars.</small></h4>
-            </div>
-            <div class="panel-body">
-                <!-- latest 4 car posts -->
-                @Html.Action("NewCarProfiles")
-            </div>
-        </div>
-    </div>
+    <!-- latest 4 car posts -->
+    @Html.Action("NewCarProfiles")
     <!-- Aside Ad Top left -->
-    <aside class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="intro-text">Ad<small> | Support us</small></h4>
-            </div>
-            <div class="panel-body">
-                <img class="img-responsive center-block" src="/images/ad300x250.jpg" alt="">
-            </div>
-        </div>
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h4 class="intro-text">Find all Answers here</h4>
-            </div>
-            <div class="panel-body">
-                <a href="#" class="btn btn-default btn-md btn-block">
-                    Help & F.A.Q
-                </a>
-            </div>
-        </div>
+
+    <aside class="col-md-4 col-sm-12">
+        @Html.Action("AsideAd")
     </aside>
 </section>
 <section class="row">
-    <div class="col-md-8 col-sm-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h4 class="intro-text">New Registered Drivers<small> |  Pretty Faces</small></h4>
-            </div>
-            <div class="panel-body">
-                <!-- latest 4 registered drivers 1 -->
-                @Html.Action("NewDrivers")
-            </div>
-        </div>
-    </div>
+    <!-- latest 4 registered drivers -->
+    @Html.Action("NewDrivers")
     <!-- Aside Comments-->
     <aside class="col-md-4 col-sm-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="intro-text">Latest Comments</h4>
-            </div>
-            <div class="panel-body">
-                @Html.Action("LatestComments")
-            </div>
-        </div>
+        @Html.Action("LatestComments")
     </aside>
 </section>
 <section class="row">
     <div class="col-md-8 col-sm-12">
         <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h4 class="intro-text">Latest Online users<small> |  Updated every 24 Hour</small></h4>
-            </div>
-            <div class="panel-body">
-                @Html.Action("OnlineUsers")
-            </div>
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                    <h4 class="intro-text">Top 3 Car Posts of the Week | <small> Determined by Fame Points </small></h4>
-                </div>
-                <div class="panel-body">
-                    <!-- Top Car Posts of the Week car posts 1 -->
-                    @Html.Action("TopCarProfiles")
-                </div>
-            </div>
+            @Html.Action("OnlineUsers")
+            <!-- Top Car Posts of the Week car posts 1 -->
+            @Html.Action("TopCarProfiles")
         </div>
         <!-- Aside Ad Bottom -->
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h4 class="intro-text">AD | <small> Support us </small></h4>
-            </div>
-            <div class="panel-body">
-                <div class="row text-center">
-                    <div class="col-md-12 col-sm-12">
-                        <img class="img-responsive center-block" src="/images/ad728x90.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
+        @Html.Action("BottomAd")
     </div>
     <!-- Aside Social Networks-->
     <aside class="col-md-4 col-sm-12 text-center">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="intro-text">Facebook<small> | Follow us</small></h4>
-            </div>
-            <div class="panel-body">
-                <div class="embed-responsive embed-responsive-4by3">
-                    <iframe class="embed-responsive-item" src="//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2FOzone.bg&amp;width&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false&amp;appId=1522534484653829" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:258px;" allowtransparency="true"></iframe>
-                </div>
-            </div>
-        </div>
+        @Html.Action("SocialNetworks")
         <!--Best Driver by Admin-->
         <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="intro-text">Pretty Driver of the Week<small> | Determined by Admins</small></h4>
-            </div>
             @Html.Action("BestDriver")
         </div>
     </aside>

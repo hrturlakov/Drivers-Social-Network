@@ -9,6 +9,9 @@
     public class UserProfileViewModelStOne : IMapFrom<UserProfile>
     {
         [HiddenInput(DisplayValue = false)]
+        public int Id { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
         public string UserId { get; set; }
 
         [Required]

@@ -23,7 +23,7 @@
         //[ChildActionOnly]
         public ActionResult StepOne()
         {
-            GetCountries();
+            this.GetCountries();
             return View(new UserProfileViewModelStOne());
         }
 
@@ -44,7 +44,7 @@
             }
             else
             {
-                GetCountries();
+                this.GetCountries();
                 return View(model);
             }
         }
@@ -121,7 +121,7 @@
         //[ChildActionOnly]
         public ActionResult StepThree()
         {
-            GetManufactures();
+            this.GetManufactures();
             return View(new CarProfileViewModelStThree());
         }
 
@@ -135,18 +135,6 @@
                 var userId = User.Identity.GetUserId();
                 var userProfile = this.Data.UserProfiles.All().FirstOrDefault(u => u.UserId == userId);
                 carModel.UserProfileId = userProfile.Id;
-                //var carProfile = new CarProfile()
-                //{
-                //    UserProfile = userProfile,
-                //    Title = carModel.Title,
-                //    Manufacturer = carModel.Manufacturer,
-                //    Model = carModel.Model,
-                //    ReleaseYear = carModel.ReleaseYear,
-                //    Engine = carModel.Engine,
-                //    HorsePower = carModel.HorsePower,
-                //    Color = carModel.Color,
-                //    Description = carModel.Description
-                //};
 
                 var carProfile = Mapper.Map<CarProfile>(carModel);
 
@@ -186,24 +174,6 @@
         {
             GetModels(value);
             return PartialView("_LoadCarModelsPartialView");
-        }
-
-        private void GetCountries()
-        {
-            var countries = this.Data.Countries.All().OrderBy(c => c.Name);
-            ViewBag.Countries = new SelectList(countries, "Name", "Name");
-        }
-
-        private void GetManufactures()
-        {
-            var manufacturers = this.Data.CarManufacturers.All().OrderBy(c => c.Name);
-            ViewBag.Manufacturers = new SelectList(manufacturers, "Name", "Name");
-        }
-
-        private void GetModels(string value)
-        {
-            var models = this.Data.CarModels.All().Where(m => m.CarManufacturer.Name == value).ToList();
-            ViewBag.Models = new SelectList(models, "Name", "Name");
         }
     }
 }

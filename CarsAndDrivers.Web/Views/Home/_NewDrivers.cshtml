@@ -1,34 +1,44 @@
 ﻿@model IEnumerable<CarsAndDrivers.ViewModels.Home.UserProfileViewModel>
 
-<div class="row text-center">
-    @foreach (var driver in Model)
-    {
-        <div class="col-md-3 col-sm-6 hero-feature">
-            <div class="thumbnail dark_gray">
-                <a href="#">
-                    <img class="img-rounded" src="~/images/user_pic_250x250_1.png" alt="" /> <!-- POst image size is very important, it must be 250x250 for tablet users. -->
-                </a>
-                <div class="caption">
-                    <p><span class="label label-danger normal">@Html.DisplayFor(model => driver.Name)</span></p>
-                    <p class="caption_p">
-                        <small>
-                            @Html.DisplayFor(model => driver.Country)
-                        </small>
-                    </p>
-                    @if (driver.Gender.ToString() == "Female")
-                    {
-                        <p class="girl">
-                            @Html.DisplayFor(model => driver.Age)  | <i class="fa fa-female"></i>
-                        </p>
-                    }
-                    else
-                    {
-                        <p class="boy">
-                            @Html.DisplayFor(model => driver.Age)  | <i class="fa fa-male"></i>
-                        </p>
-                    }
-                </div>
+<div class="col-md-8 col-sm-12">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <h4 class="intro-text">New Registered Drivers<small> |  Pretty Faces</small></h4>
+        </div>
+        <div class="panel-body">
+            <div class="row text-center">
+                @foreach (var driver in Model)
+                {
+                    <div class="col-md-3 col-sm-6 hero-feature">
+                        <div class="thumbnail dark_gray">
+                            <a href="@Url.Action("All", "Details", new { area = "Drivers", id = @driver.Id }, null)">
+                                <img class="img-rounded" src="@driver.PictureUrl" alt="" /> 
+                                <!-- POst image size is very important, it must be 250x250 for tablet users. -->
+                            </a>
+                            <div class="caption">
+                                <p><span class="label label-danger normal">@Html.DisplayFor(model => driver.Name)</span></p>
+                                <p class="caption_p">
+                                    <small>
+                                        @Html.DisplayFor(model => driver.Country)
+                                    </small>
+                                </p>
+                                @if (driver.Gender.ToString() == "Female")
+                                {
+                                    <p class="girl">
+                                        @Html.DisplayFor(model => driver.Age)  | <i class="fa fa-female"></i>
+                                    </p>
+                                }
+                                else
+                                {
+                                    <p class="boy">
+                                        @Html.DisplayFor(model => driver.Age)  | <i class="fa fa-male"></i>
+                                    </p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
-    }
+    </div>
 </div>

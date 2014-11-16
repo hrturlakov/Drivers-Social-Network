@@ -1,0 +1,96 @@
+﻿@using Microsoft.AspNet.Identity
+@model CarsAndDrivers.ViewModels.CreateProfile.UserProfileViewModelStTwo
+@{
+    ViewBag.Title = "Update Picture";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="intro-text">Update<small> | Avatar & Profile pictures</small></h4>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UpdatePicture", "UserSettings", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="col-md-8 col-md-offset-2 ">
+                        <div class="form-group">
+                            <label for="Avatar">Avatar</label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-primary btn-file">
+                                        Browse&hellip; @Html.TextBoxFor(m => m.Avatar, new { type = "file" })
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Avatar, "", new { @class = "text-danger" })
+                            <p><small>File format - JPEG or GIF with or without animation.Picture size of at least 64 × 64 pixels.</small></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="Profile Picture">Profile Picture</label>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <span class="btn btn-primary btn-file">
+                                        Browse&hellip; @Html.TextBoxFor(m => m.Picture, new { type = "file" })
+                                    </span>
+                                </span>
+                                <input type="text" class="form-control" readonly>
+                            </div>
+                            @Html.ValidationMessageFor(m => m.Picture, "", new { @class = "text-danger" })
+                            <p><small>File format - JPEG or GIF without animation.Picture size of at least 200 × 200 pixels.</small></p>
+                            <p>
+                                <small class="text-danger">Before upload Profile picture, read this simple rules. Really, read it!</small>
+                                <ul>
+                                    <li>
+                                        If you are under 18 and upload nude/porn pictures, it will be deleted without warning.
+                                    </li>
+                                    <li>
+                                        Pictures of celebrities, animals, cars, bikes, cartoons, drawings, etc. will be deleted.
+                                    </li>
+                                    <li>
+                                        Pictures containing the logo of another site will be deleted without warning.
+                                    </li>
+                                    <li>
+                                        Pictures, where you are with group of other people will be deleted.
+                                    </li>
+                                    <li>
+                                        Pictures, edited by software, will be deleted.
+                                    </li>
+                                </ul>
+                            </p>
+                            <p>
+                                <small class="text-success">What is good to upload</small>
+                                <ul>
+                                    <li>
+                                        Upload your pretty face.
+                                    </li>
+                                    <li>
+                                        Upload your picture from summer?
+                                    </li>
+                                    <li>
+                                        Upload pictures, where you stand alone, to show us, your majesty.
+                                    </li>
+                                </ul>
+                            </p>
+                        </div>
+                        <input type="submit" value="Update & Save" class="btn btn-default btn-md btn-block" />
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Aside Ad -->
+    <aside class="col-md-4">
+        @Html.Action("AsideAd", "Home")
+        @Html.Action("LatestComments", "Home")
+    </aside>
+</section>
+<section class="row">
+    <div class="col-md-8 col-sm-12">
+        @Html.Action("BottomAd", "Home")
+    </div>
+</section>

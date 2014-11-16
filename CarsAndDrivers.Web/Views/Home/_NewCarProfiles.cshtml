@@ -1,11 +1,19 @@
 ﻿@model IEnumerable<CarsAndDrivers.ViewModels.Home.CarProfileViewModel>
 
-<div class="row text-center">
-    @foreach (var car in Model)
-    {
-        <div class="col-md-3 col-sm-6 hero-feature">
-            @Html.DisplayFor(model => car)
+<div class="col-md-8">
+    <div class="panel panel-default text-center">
+        <div class="panel-heading">
+            <h4 class="intro-text">New Car Posts<small> |  Wow, look at those cars.</small></h4>
         </div>
-    }
+        <div class="panel-body">
+            <div class="row text-center">
+                @foreach (var car in Model)
+                {
+                    <div class="col-md-3 col-sm-6 hero-feature">
+                        @Html.DisplayFor(model => car)
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>
-
