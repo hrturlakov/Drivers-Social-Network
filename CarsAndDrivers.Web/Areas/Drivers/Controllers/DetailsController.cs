@@ -37,7 +37,7 @@
             var displayedCarProfiles = 4;
             var skipedCarProfiles = (page - 1) * displayedCarProfiles;
             var numberOfPages = userProfile.CarProfiles.Count() / displayedCarProfiles;
-            if (numberOfPages % 4 != 0) numberOfPages++;
+            if (userProfile.CarProfiles.Count() % 4 != 0) numberOfPages++;
 
             ViewBag.NumberOfPages = numberOfPages;
 

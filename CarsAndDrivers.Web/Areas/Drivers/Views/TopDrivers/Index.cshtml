@@ -1,9 +1,48 @@
-﻿
+﻿@model IList<CarsAndDrivers.Areas.Drivers.ViewModels.UserProfileDetailsViewModel>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Drivers/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Top Drivers</h2>
-@ViewBag.page
 
+<section class="row">
+    <div class="col-md-8 col-sm-12">
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+                <h4 class="intro-text">Famous drivers <small> | Determined by driver reputation points</small></h4>
+            </div>
+            <div class="panel-body">
+                <!-- Top Drivers -->
+                @foreach (var driver in @Model)
+                {
+                    <div class="row text-left">
+                        <div class="col-md-6">
+                            <div class="media">
+                                <a class="media-left top-middle" href="@Url.Action("All", "Details", new { area = "Drivers", id = @driver.Id }, null)">
+                                    <img src="@driver.AvatarUrl" />	  <!-- Avatars van be ANimated, for Dynamic and beautiful user content 64x64 Max Sise -->
+                                </a>
+                                <div class="media-body">
+                                    <h6 class="media-heading"><span class="label label-danger normal">@driver.User.UserName</span></h6>
+                                    @{
+                                        var genderClass = @driver.Gender.ToString() == "Male" ? "fa fa-male boy" : "fa fa-female girl";
+                                    }
+                                    <h6><small>@driver.Country | @driver.Age |  </small><i class="@genderClass"></i></h6>
+                                    <h6><small>Driving experience: from @driver.DrivingExperience</small></h6>
+                                    <h6><small>Reputation: </small><span class="label label-success">2123</span></h6>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+        @Html.Action("BottomAd")
+    </div>
+    <!-- Aside -->
+    <aside class="col-md-4 col-sm-12">
+        @Html.Action("AsideAd")
+
+        @Html.Action("SocialNetworks")
+    </aside>
+</section>

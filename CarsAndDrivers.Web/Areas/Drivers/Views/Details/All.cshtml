@@ -75,7 +75,7 @@
                 <h4 class="intro-text">My Profile Comments</h4>
             </div>
             <div class="panel-body">
-                @using (Ajax.BeginForm("Comment", new { id = Model.Id},
+                @using (Ajax.BeginForm("Comment", new { id = Model.Id },
                     new AjaxOptions
                     {
                         HttpMethod = "POST",
@@ -102,10 +102,10 @@
     </aside>
     <!-- // Aside -->
     <div class="col-md-8 col-sm-12">
-        
-                <!-- My latest 4 car posts -->
-                @Html.Partial("_CarProfiles", Model.CarProfiles)
-            
+
+        <!-- My latest 4 car posts -->
+        @Html.Partial("_CarProfiles", Model.CarProfiles)
+
         <div class="panel panel-default text-center">
             <div class="panel-body">
                 <div class="row text-center">
@@ -120,10 +120,10 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-<script>
-    function OnSuccess(response) {
-        $('#comment-text').val('');
-    }
+    <script>
+        function OnSuccess(response) {
+            $('#comment-text').val('');
+        }
     </script>
 }
 

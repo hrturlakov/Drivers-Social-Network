@@ -1,0 +1,7 @@
+﻿@model CarsAndDrivers.ViewModels.CreateProfile.CarProfileViewModelStThree
+
+@if (ViewBag.Models != null)
+{
+    @Html.LabelFor(m => m.Model)
+    @Html.DropDownList("Model", (IEnumerable<SelectListItem>)ViewBag.Models, "Pick one", new { @class = "form-control" })
+}

@@ -69,6 +69,7 @@
             }
         }
 
+        // GET: UserSettings/UpdatePicture
         public ActionResult UpdatePicture()
         {
             return View();
