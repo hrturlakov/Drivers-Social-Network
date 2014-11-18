@@ -207,9 +207,15 @@
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\Base\KendoGridAdministrationController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CarPictureController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CarProfileController.cs" />
+    <Compile Include="Areas\Administration\Controllers\CommentController.cs" />
     <Compile Include="Areas\Administration\Controllers\CountryController.cs" />
     <Compile Include="Areas\Administration\Controllers\UserProfileController.cs" />
     <Compile Include="Areas\Administration\ViewModels\Base\AdministrationViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CarPictures\CarPictureViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\CarProfiles\CarProfileViewModel.cs" />
+    <Compile Include="Areas\Administration\ViewModels\Comments\CommentViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\Countries\CountryViewModel.cs" />
     <Compile Include="Areas\Administration\ViewModels\UserProfiles\UserProfileViewModel.cs" />
     <Compile Include="Areas\Drivers\Controllers\PostNewCarController.cs" />
@@ -291,6 +297,9 @@
     <Content Include="Areas\Drivers\Views\TopDrivers\_AsideAd.cshtml" />
     <Content Include="Areas\Drivers\Views\TopDrivers\_BottomAd.cshtml" />
     <Content Include="Areas\Drivers\Views\TopDrivers\_SocialNetworks.cshtml" />
+    <Content Include="Areas\Administration\Views\CarProfile\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\CarPicture\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Comment\Index.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="images\default\avatar.jpg" />
     <Content Include="Scripts\bootstrap.js" />

@@ -34,12 +34,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin panel<span class="caret text-success"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Users</a></li>
-                                <li><a href="#">UserProfiles</a></li>
-                                <li><a href="#">CarProfiles</a></li>
-                                <li><a href="#">CarPictures</a></li>
-                                <li><a href="#">Comments</a></li>
-                                <li><a href="#">Countries</a></li>
+                                <li><a href="@Url.Action("Index", "UserProfile", new { area = "Administration" }, null)">UserProfiles</a></li>
+                                <li><a href="@Url.Action("Index", "CarProfile", new { area = "Administration" }, null)">CarProfiles</a></li>
+                                <li><a href="@Url.Action("Index", "CarPicture", new { area = "Administration" }, null)">CarPictures</a></li>
+                                <li><a href="@Url.Action("Index", "Comment", new { area = "Administration" }, null)">Comments</a></li>
+                                <li><a href="@Url.Action("Index", "Country", new { area = "Administration" }, null)">Countries</a></li>
                             </ul>
                         </li>
                     }

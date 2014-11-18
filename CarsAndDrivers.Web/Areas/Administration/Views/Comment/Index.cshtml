@@ -1,0 +1,37 @@
+﻿@using CarsAndDrivers.Areas.Administration.ViewModels.Comments;
+@{
+    ViewBag.Title = "Country";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string controllerName = "Comment";
+}
+
+    <h2>@ViewBag.Title</h2>
+
+    @(Html.Kendo().Grid<CommentViewModel>()
+        .Name("grid")
+        .Columns(cols =>
+        {
+            cols.Bound(pr => pr.Id);
+            cols.Bound(pr => pr.SenderId);
+            cols.Bound(pr => pr.UserProfileId);
+            cols.Bound(pr => pr.Text);
+            cols.Bound(pr => pr.CreatedOn);
+            cols.Command(com => com.Edit()).Title("Edit");
+            cols.Command(com => com.Destroy()).Title("Delete");
+        })
+        .ColumnMenu()
+        .Pageable(page => page.Refresh(true))
+        .Sortable()
+        .Groupable()
+        .Filterable()
+        .Editable(edit => edit.Mode(GridEditMode.PopUp))
+        .ToolBar(toolbar => toolbar.Create())
+        .DataSource(data =>
+            data
+                .Ajax()
+                .Model(m => m.Id(cntr => cntr.Id))
+                .Read(read => read.Action("Read", controllerName))
+                    .Create(create => create.Action("Create", controllerName))
+                    .Update(update => update.Action("Update", controllerName))
+                    .Destroy(destroy => destroy.Action("Destroy", controllerName))
+                ))

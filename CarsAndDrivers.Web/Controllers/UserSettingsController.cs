@@ -20,6 +20,7 @@
         {
         }
 
+        [ChildActionOnly]
         public ActionResult UserMenu()
         {
             var userId = User.Identity.GetUserId();

@@ -15,14 +15,19 @@
         [HiddenInput(DisplayValue = false)]
         public string UserId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public int Age { get; set; }
 
+        [Required]
         public Gender Gender { get; set; }
 
+        [Required]
         public string Country { get; set; }
 
+        [Required]
         public int DrivingExperience { get; set; }
 
         public string AboutYou { get; set; }

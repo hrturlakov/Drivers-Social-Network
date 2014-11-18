@@ -18,21 +18,16 @@
         {
         }
 
-        protected abstract DataSourceResult GetData([DataSourceRequest]DataSourceRequest request);
-        
+        protected abstract IEnumerable GetData();
+
         protected abstract T GetById<T>(object id) where T : class;
 
         [HttpPost]
         public ActionResult Read([DataSourceRequest]DataSourceRequest request)
         {
-            var dbModels = GetData(request);
+            var collection = this.GetData().ToDataSourceResult(request);
 
-            //var dbModels = this.GetData()
-            //    .ToDataSourceResult(request);
-            //var userProfiles = this.Data.UserProfiles.All()
-            //   .ToDataSourceResult(request, u => Mapper.Map<TViewModel>(u));
-
-            return this.Json(dbModels);
+            return this.Json(collection);
         }
 
         [NonAction]
@@ -40,7 +35,7 @@
         {
             if (model != null && ModelState.IsValid)
             {
-                var dbModel = Mapper.DynamicMap<T>(model);
+                var dbModel = Mapper.Map<T>(model);
                 this.ChangeEntityStateAndSave(dbModel, EntityState.Added);
                 return dbModel;
             }
@@ -50,15 +45,14 @@
 
         [NonAction]
         protected virtual void Update<TModel, TViewModel>(TViewModel model, object id)
-            where TModel : AuditInfo
-            where TViewModel : AdministrationViewModel
+            where TModel : class
+            where TViewModel : class
         {
             if (model != null && ModelState.IsValid)
             {
                 var dbModel = this.GetById<TModel>(id);
-                Mapper.DynamicMap<TViewModel, TModel>(model, dbModel);
+                Mapper.Map<TViewModel, TModel>(model, dbModel);
                 this.ChangeEntityStateAndSave(dbModel, EntityState.Modified);
-                model.ModifiedOn = dbModel.ModifiedOn;
             }
         }
 

@@ -1,0 +1,39 @@
+﻿@using CarsAndDrivers.Areas.Administration.ViewModels.CarPictures;
+@{
+    ViewBag.Title = "Car Profile";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string controllerName = "CarPicture";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo().Grid<CarPictureViewModel>()
+                    .Name("Grid")
+                    .Columns(cols =>
+                        {
+                            cols.Bound(pr => pr.Id).Width(25);
+                            cols.Bound(pr => pr.CarProfileId).Width(50).Hidden();
+                            cols.Bound(pr => pr.Url).Width(100);
+                            cols.Bound(pr => pr.CreatedOn).Width(50);
+                            cols.Command(com => com.Edit()).Title("Edit").Width(100);
+                            cols.Command(com => com.Destroy()).Title("Delete").Width(120);
+                        })
+                        .ColumnMenu()
+                        .Pageable(page => page.Refresh(true))
+                        .Sortable()
+                        .Groupable()
+                        .Filterable()
+                        .Editable(edit => edit.Mode(GridEditMode.PopUp))
+                        .ToolBar(toolbar => 
+                        {
+                            toolbar.Create();
+                        })
+                        .HtmlAttributes(new { style = "width:100%;" })
+                        .DataSource(data => data
+                            .Ajax()
+                            .Model(m => m.Id(cntr => cntr.Id))
+                            .Read(read => read.Action("Read", controllerName))
+                            .Create(create => create.Action("Create", controllerName))
+                            .Update(update => update.Action("Update", controllerName))
+                            .Destroy(destroy => destroy.Action("Destroy", controllerName))
+))
