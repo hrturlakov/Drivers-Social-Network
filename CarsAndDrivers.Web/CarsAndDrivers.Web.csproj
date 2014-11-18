@@ -334,7 +334,30 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\site-landingpage.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="uploads\admin\pictures\post1_800x500_1.png" />
+    <Content Include="uploads\admin\pictures\post1_800x500_2.png" />
+    <Content Include="uploads\admin\pictures\post1_800x500_3.png" />
+    <Content Include="uploads\admin\pictures\post1_800x500_4.png" />
+    <Content Include="uploads\admin\profile\anim_2.gif" />
+    <Content Include="uploads\admin\profile\user_pic_250x250_3.png" />
+    <Content Include="uploads\baby\pictures\post1_800x500_3.png" />
+    <Content Include="uploads\baby\profile\anim_5.gif" />
+    <Content Include="uploads\baby\profile\user_pic_250x400.png" />
+    <Content Include="uploads\DartVader\pictures\post1_800x500_4.png" />
+    <Content Include="uploads\DartVader\profile\anim_3.gif" />
+    <Content Include="uploads\DartVader\profile\Bundesarchiv_Bild_183-S33882,_Adolf_Hitler_%28cropped%29.jpg" />
+    <Content Include="uploads\driver\pictures\post1_800x500_2.png" />
+    <Content Include="uploads\driver\profile\anim_4.gif" />
+    <Content Include="uploads\driver\profile\jimcarreycrazy.jpg" />
+    <Content Include="uploads\sexybaby\pictures\post1_800x500_3.png" />
+    <Content Include="uploads\sexybaby\profile\anim_8.gif" />
+    <Content Include="uploads\sexybaby\profile\post1_800x500_1.png" />
+    <Content Include="uploads\user\pictures\post1_800x500_2.png" />
+    <Content Include="uploads\user\profile\anim_1.gif" />
+    <Content Include="uploads\user\profile\images.jpg" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -392,7 +415,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Kendo\" />
-    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

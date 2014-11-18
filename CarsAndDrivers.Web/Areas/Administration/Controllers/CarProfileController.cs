@@ -34,7 +34,7 @@
 
         protected override T GetById<T>(object id)
         {
-            return this.Data.UserProfiles.GetById(id) as T;
+            return this.Data.CarProfiles.GetById(id) as T;
         }
 
         [HttpPost]
