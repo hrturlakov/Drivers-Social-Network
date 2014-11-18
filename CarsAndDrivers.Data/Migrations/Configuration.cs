@@ -19,6 +19,87 @@ namespace CarsAndDrivers.Data.Migrations
 
         protected override void Seed(ApplicationDbContext context)
         {
+            SeedCars(context);
+            SeedCountries(context);
+        }
+
+        private static void SeedCars(ApplicationDbContext context)
+        {
+            if (context.CarManufacturers.Count() != 0)
+            {
+                return;
+            }
+
+            IEnumerable<CarManufacturer> carsCollection = new List<CarManufacturer>()
+            {
+                new CarManufacturer()
+                {
+                    Name = "Audi",
+                    CarModels = new List<CarModel>()
+                    {
+                        new CarModel(){ Name = "A3"},
+                        new CarModel(){ Name = "A4"},
+                        new CarModel(){ Name = "A5"},
+                        new CarModel(){ Name = "A6"},
+                        new CarModel(){ Name = "A7"}
+                    }
+                },
+                new CarManufacturer()
+                {
+                    Name = "BMW",
+                    CarModels = new List<CarModel>()
+                    {
+                        new CarModel(){ Name = "318"},
+                        new CarModel(){ Name = "320"},
+                        new CarModel(){ Name = "330"},
+                        new CarModel(){ Name = "520"},
+                        new CarModel(){ Name = "530"}
+                    }
+                },
+                new CarManufacturer()
+                {
+                    Name = "Lada",
+                    CarModels = new List<CarModel>()
+                    {
+                        new CarModel(){ Name = "1200"},
+                        new CarModel(){ Name = "1300"},
+                        new CarModel(){ Name = "1500"},
+                        new CarModel(){ Name = "2105"},
+                        new CarModel(){ Name = "2107"},
+                        new CarModel(){ Name = "Samara"}
+                    }
+                },
+                new CarManufacturer()
+                {
+                    Name = "Opel",
+                    CarModels = new List<CarModel>()
+                    {
+                        new CarModel(){ Name = "Astra"},
+                        new CarModel(){ Name = "Calibra"},
+                        new CarModel(){ Name = "Corsa"},
+                        new CarModel(){ Name = "Insidnia"},
+                        new CarModel(){ Name = "Zafira"}
+                    }
+                },
+                new CarManufacturer()
+                {
+                    Name = "VW",
+                    CarModels = new List<CarModel>()
+                    {
+                        new CarModel(){ Name = "Golf"},
+                        new CarModel(){ Name = "Jetta"},
+                        new CarModel(){ Name = "Eos"},
+                        new CarModel(){ Name = "Passat"},
+                        new CarModel(){ Name = "Phaeton"}
+                    }
+                },
+            };
+
+            context.CarManufacturers.AddOrUpdate(carsCollection.ToArray());
+        }
+
+        private static void SeedCountries(ApplicationDbContext context)
+        {
             if (context.Countries.Count() != 0)
             {
                 return;

@@ -20,7 +20,6 @@
         }
 
         // GET: CreateProfile/StepOne
-        [ChildActionOnly]
         public ActionResult StepOne()
         {
             this.GetCountries();
@@ -50,7 +49,6 @@
         }
 
         // GET: CreateProfile/StepTwo
-        [ChildActionOnly]
         [HttpGet]
         public ActionResult StepTwo()
         {
@@ -118,7 +116,6 @@
 
 
         // GET: CreateProfile/StepThree
-        [ChildActionOnly]
         public ActionResult StepThree()
         {
             this.GetManufactures();
