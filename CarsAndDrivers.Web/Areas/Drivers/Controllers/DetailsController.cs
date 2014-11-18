@@ -13,6 +13,7 @@
     using CarsAndDrivers.Data;
     using CarsAndDrivers.Models;
     
+    [Authorize]
     public class DetailsController : BaseController
     {
         public DetailsController(IApplicationData data)

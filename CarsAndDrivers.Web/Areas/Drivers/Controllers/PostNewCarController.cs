@@ -1,20 +1,21 @@
-﻿using CarsAndDrivers.Areas.Drivers.ViewModels;
-using CarsAndDrivers.Controllers;
-using CarsAndDrivers.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using AutoMapper.QueryableExtensions;
-using CarsAndDrivers.ViewModels.CreateProfile;
-using CarsAndDrivers.Models;
-using AutoMapper;
-using System.IO;
-using Microsoft.AspNet.Identity;
-
-namespace CarsAndDrivers.Areas.Drivers.Controllers
+﻿namespace CarsAndDrivers.Areas.Drivers.Controllers
 {
+    using System.IO;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Mvc;
+
+    using AutoMapper.QueryableExtensions;
+    using AutoMapper;
+    using Microsoft.AspNet.Identity;
+
+    using CarsAndDrivers.Areas.Drivers.ViewModels;
+    using CarsAndDrivers.Controllers;
+    using CarsAndDrivers.Data;
+    using CarsAndDrivers.ViewModels.CreateProfile;
+    using CarsAndDrivers.Models;
+
+    [Authorize]
     public class PostNewCarController : BaseController
     {
         public PostNewCarController(IApplicationData data)

@@ -2,6 +2,9 @@
 
 @{
     var time = DateTime.Now - @Model;
+    var displayTime = String.Format("{0} Minutes", time.Minutes);
+    if (time.Hours > 0) displayTime = String.Format("{0} Hours", time.Hours);
+    if (time.Days > 0) displayTime = String.Format("{0} Days", time.Days);
 }
 
-@String.Format("{0}", @time.Minutes) Minutes
+@displayTime

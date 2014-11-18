@@ -5,7 +5,7 @@
     using CarsAndDrivers.Controllers;
     using CarsAndDrivers.Data;
 
-    //[Authorize(Roles = "Administrator")]
+    [Authorize(Roles = "Admin")]
     public abstract class AdminController : BaseController
     {
         public AdminController(IApplicationData data)

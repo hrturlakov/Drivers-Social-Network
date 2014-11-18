@@ -11,7 +11,7 @@
     using CarsAndDrivers.ViewModels.CreateProfile;
     using CarsAndDrivers.Models;
 
-    //[Authorize]
+    [Authorize]
     public class CreateProfileController : BaseController
     {
         public CreateProfileController(IApplicationData data)
@@ -20,7 +20,7 @@
         }
 
         // GET: CreateProfile/StepOne
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult StepOne()
         {
             this.GetCountries();
@@ -50,7 +50,7 @@
         }
 
         // GET: CreateProfile/StepTwo
-        //[ChildActionOnly]
+        [ChildActionOnly]
         [HttpGet]
         public ActionResult StepTwo()
         {
@@ -118,7 +118,7 @@
 
 
         // GET: CreateProfile/StepThree
-        //[ChildActionOnly]
+        [ChildActionOnly]
         public ActionResult StepThree()
         {
             this.GetManufactures();

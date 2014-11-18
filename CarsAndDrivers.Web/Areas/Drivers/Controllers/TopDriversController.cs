@@ -8,6 +8,7 @@
     using CarsAndDrivers.Data;
     using CarsAndDrivers.Areas.Drivers.ViewModels;
 
+    [Authorize]
     public class TopDriversController : BaseController
     {
         public TopDriversController(IApplicationData data)

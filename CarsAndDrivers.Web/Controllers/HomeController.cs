@@ -11,7 +11,7 @@
     using CarsAndDrivers.Data;
     using CarsAndDrivers.ViewModels.Home;
 
-    //[Authorize]
+    [Authorize]
     public class HomeController : BaseController
     {
         public HomeController(IApplicationData data)
