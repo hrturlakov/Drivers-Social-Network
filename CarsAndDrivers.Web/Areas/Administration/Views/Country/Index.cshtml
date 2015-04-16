@@ -1,0 +1,34 @@
+﻿@using CarsAndDrivers.Areas.Administration.ViewModels.Countries;
+@{
+    ViewBag.Title = "Country";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string controllerName = "Country";
+}
+
+    <h2>@ViewBag.Title</h2>
+
+    @(Html.Kendo().Grid<CountryViewModel>()
+        .Name("grid")
+        .Columns(cols =>
+        {
+            cols.Bound(pr => pr.Id);
+            cols.Bound(pr => pr.Name);
+            cols.Command(com => com.Edit()).Title("Edit");
+            cols.Command(com => com.Destroy()).Title("Delete");
+        })
+        .ColumnMenu()
+        .Pageable(page => page.Refresh(true))
+        .Sortable()
+        .Groupable()
+        .Filterable()
+        .Editable(edit => edit.Mode(GridEditMode.PopUp))
+        .ToolBar(toolbar => toolbar.Create())
+        .DataSource(data =>
+            data
+                .Ajax()
+                .Model(m => m.Id(cntr => cntr.Id))
+                .Read(read => read.Action("Read", controllerName))
+                    .Create(create => create.Action("Create", controllerName))
+                    .Update(update => update.Action("Update", controllerName))
+                    .Destroy(destroy => destroy.Action("Destroy", controllerName))
+                ))

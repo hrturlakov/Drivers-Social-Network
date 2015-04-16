@@ -10,12 +10,12 @@
                 @foreach (var driver in Model)
                 {
                     <div class="col-md-3 col-sm-6 hero-feature">
-                        <div class="thumbnail dark_gray">
+                        <div class="thumbnail dark_gray" style="min-height:300px;">
                             <a href="@Url.Action("All", "Details", new { area = "Drivers", id = @driver.Id }, null)">
-                                <img class="img-rounded" src="@driver.PictureUrl" alt="" /> 
+                                <img class="img-rounded" src="@driver.PictureUrl" style="width:50px;height:50px;" alt="" />
                                 <!-- POst image size is very important, it must be 250x250 for tablet users. -->
                             </a>
-                            <div class="caption">
+                            <div class="caption bottom">
                                 <p><span class="label label-danger normal">@Html.DisplayFor(model => driver.Name)</span></p>
                                 <p class="caption_p">
                                     <small>

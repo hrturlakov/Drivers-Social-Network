@@ -1,0 +1,43 @@
+﻿@using CarsAndDrivers.Areas.Administration.ViewModels.UserProfiles;
+@{
+    ViewBag.Title = "User Profile";
+    Layout = "~/Areas/Administration/Views/Shared/_Layout.cshtml";
+    const string controllerName = "UserProfile";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@(Html.Kendo().Grid<UserProfileViewModel>()
+                    .Name("Grid")
+                    .Columns(cols =>
+                        {
+                            cols.Bound(pr => pr.Id).Width(25);
+                            cols.Bound(pr => pr.UserId).Width(50).Hidden();
+                            cols.Bound(pr => pr.Name).Width(150);
+                            cols.Bound(pr => pr.Age).Width(50);
+                            cols.Bound(pr => pr.Gender).Width(50);
+                            cols.Bound(pr => pr.Country).Width(50);
+                            cols.Bound(pr => pr.DrivingExperience).Width(30);
+                            cols.Bound(pr => pr.AboutYou).Width(200);
+                            cols.Command(com => com.Edit()).Title("Edit").Width(100);
+                            cols.Command(com => com.Destroy()).Title("Delete").Width(120);
+                        })
+                        .ColumnMenu()
+                        .Pageable(page => page.Refresh(true))
+                        .Sortable()
+                        .Groupable()
+                        .Filterable()
+                        .Editable(edit => edit.Mode(GridEditMode.PopUp))
+                        .ToolBar(toolbar => 
+                        {
+                            toolbar.Create();
+                        })
+                        .HtmlAttributes(new { style = "width:100%;" })
+                        .DataSource(data => data
+                            .Ajax()
+                            .Model(m => m.Id(cntr => cntr.Id))
+                            .Read(read => read.Action("Read", controllerName))
+                            .Create(create => create.Action("Create", controllerName))
+                            .Update(update => update.Action("Update", controllerName))
+                            .Destroy(destroy => destroy.Action("Destroy", controllerName))
+))

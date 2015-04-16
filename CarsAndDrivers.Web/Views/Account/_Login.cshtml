@@ -22,7 +22,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Please enter your username" })
-                            @*<input type="text" class="form-control" name="Username" id="Username" placeholder="Please enter your username" required>*@
                         </div>
                         @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
                     </div>
@@ -31,7 +30,6 @@
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-pencil"></span></span>
                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "Please enter your pasword" })
-                            @*<input type="text" class="form-control" name="Password" id="Password" placeholder="Please enter your pasword" required>*@
                         </div>
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>

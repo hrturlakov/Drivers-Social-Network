@@ -1,0 +1,79 @@
+﻿@using Microsoft.AspNet.Identity
+@model CarsAndDrivers.ViewModels.CreateProfile.UserProfileViewModelStOne
+@{
+    ViewBag.Title = "Settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="row">
+    <div class="col-md-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="intro-text">Settings</h4>
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("UpdateProfile", "UserSettings", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.Id)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Name):
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Please enter your Name" })
+                        </div>
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                        <p><small>This will be visible for other users</small></p>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Age):
+                        @*<div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>*@
+                        @Html.TextBoxFor(m => m.Age, new { type = "number", @class = "form-control", @placeholder = "Please enter your Age", @value = "18" })
+                        @*</div>*@
+                        @Html.ValidationMessageFor(m => m.Age, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Gender):
+                        @Html.DropDownListFor(model => model.Gender, Enum.GetNames(typeof(CarsAndDrivers.Models.Gender)).Select(e => new SelectListItem { Text = e }), new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Country):
+                        @Html.DropDownList("Country", (IEnumerable<SelectListItem>)ViewBag.Countries, "Worldwide", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Country, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.DrivingExperience):
+                        @{
+                    var years = new List<SelectListItem>();
+                    for (int i = DateTime.Now.Year; i >= 1925; i--)
+                    {
+                        years.Add(new SelectListItem { Text = i.ToString(), Value = i.ToString() });
+                    }
+                        }
+                        @Html.DropDownList("DrivingExperience", years, "Choose year", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.DrivingExperience, "", new { @class = "text-danger" })
+                        <p><small>In what year did you start to drive?</small></p>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.AboutYou):
+                        @Html.TextAreaFor(m => m.AboutYou, new { @class = "form-control" })
+                        <p><small>Tell us about you, how cool you are?</small></p>
+                    </div>
+                    <input type="submit" class="btn btn-default btn-md btn-block" value="Update & Save">
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Aside Ad -->
+    <aside class="col-md-4">
+        @Html.Action("AsideAd", "Home")
+        @Html.Action("LatestComments", "Home")
+    </aside>
+</section>
+<section class="row">
+    <div class="col-md-8 col-sm-12">
+        @Html.Action("BottomAd", "Home")
+    </div>
+</section>
